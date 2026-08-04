@@ -115,7 +115,7 @@ export default function Home() {
             <div className="lg:w-[480px] lg:flex-shrink-0 flex items-center justify-center py-8 lg:py-0">
               <div className="relative w-full max-w-[440px] aspect-[4/3]">
                 <Image
-                  src="/images/pdf-p-01.png"
+                  src="/images/hero-system.png"
                   alt="Würzburg Dynamics surgical robot system"
                   fill
                   style={{ objectFit: "contain" }}
