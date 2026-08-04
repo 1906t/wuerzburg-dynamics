@@ -1,134 +1,203 @@
+import Link from "next/link";
+import Nav from "@/components/Nav";
+
 export const metadata = {
-  title: "For Partners — Würzberg Dynamics",
+  title: "For Partners — Würzburg Dynamics",
 };
 
 export default function PartnerPage() {
   return (
-    <main className="max-w-3xl mx-auto px-6 py-20 space-y-20">
+    <div className="min-h-screen bg-white">
+      <Nav lang="en" />
 
-      {/* 1. What we built */}
-      <section>
-        <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">The Company</p>
-        <h1 className="text-3xl font-bold mb-4">
-          The technology is proven. Now we&apos;re expanding internationally.
-        </h1>
-        <p className="text-gray-600 leading-relaxed">
-          [Same 2-paragraph company intro as investor page — extract to shared component in Week 2.]
-        </p>
-      </section>
+      <main className="pt-36 pb-32 px-6">
+        <div className="max-w-[720px] mx-auto">
 
-      {/* 2. Why partner */}
-      <section>
-        <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">The Opportunity</p>
-        <h2 className="text-2xl font-bold mb-4">
-          A clinically validated platform looking for the right partners in each market.
-        </h2>
-        <p className="text-gray-600 leading-relaxed">
-          Würzberg is deployed in 100+ hospitals in China and is now opening international markets.
-          We&apos;re looking for partners who bring local regulatory expertise, clinical relationships,
-          and distribution reach — in return for exclusive or preferential rights in their territory.
-        </p>
-      </section>
+          <div className="mb-24">
+            <div className="label-caps mb-5">Distribution Partners</div>
+            <h1
+              className="font-display font-700 text-ink leading-[1.05] tracking-[-0.01em] mb-6"
+              style={{ fontSize: "clamp(36px, 5vw, 60px)" }}
+            >
+              The technology is proven.<br />
+              Now we&apos;re expanding<br />
+              internationally.
+            </h1>
+            <p className="text-[16px] font-[300] text-[#6B6B6B] leading-[1.7]">
+              Würzburg Dynamics is deployed in 100+ hospitals in China and is now opening
+              international markets. We are looking for partners who bring local regulatory
+              expertise, clinical relationships, and distribution reach — in return for
+              exclusive or preferential rights in their territory.
+            </p>
+          </div>
 
-      {/* 3. Technology (more spec detail than investor page) */}
-      <section>
-        <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">Technology</p>
-        <h2 className="text-2xl font-bold mb-4">What you&apos;re distributing.</h2>
-        <ul className="space-y-3 text-gray-600">
-          <li>→ <strong>Dual-path imaging:</strong> CT-guided + ultrasound-guided — the only system in China with both</li>
-          <li>→ <strong>AI surgical path planning:</strong> 3D organ reconstruction from intraoperative CT; real-time respiratory motion compensation</li>
-          <li>→ <strong>Navigation accuracy:</strong> ~1mm (lung) · ~3mm (kidney)</li>
-          <li>→ <strong>Procedure types:</strong> Biopsy, ablation, drainage, stone extraction, particle implantation</li>
-          <li>→ <strong>Platform compatibility:</strong> C-arm, CBCT, OBCT</li>
-          <li>→ <strong>Business model:</strong> Capital equipment + recurring consumables</li>
-        </ul>
-      </section>
+          <div className="border-t border-[#E5E5E4] mb-24" />
 
-      {/* 4. Partnership models */}
-      <section>
-        <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">How We Work Together</p>
-        <h2 className="text-2xl font-bold mb-6">Three partnership models.</h2>
-        <div className="space-y-6">
-          {[
-            {
-              title: "Distribution",
-              desc: "Exclusive or preferential distribution rights in a defined territory. Partner handles hospital sales, installation, and after-sales support. Würzberg provides training, regulatory documentation, and technical support.",
-            },
-            {
-              title: "Regulatory Partnership",
-              desc: "For partners with existing regulatory relationships who can accelerate device registration in their market (e.g. HSA Singapore, UAE MOH, Saudi SFDA). Joint regulatory strategy and cost-sharing.",
-            },
-            {
-              title: "Co-development / Licensing",
-              desc: "For partners interested in adapting the platform for new indications or integrating with existing systems. IP licensing and joint development agreements available.",
-            },
-          ].map((model) => (
-            <div key={model.title} className="border-l-2 border-gray-200 pl-5">
-              <p className="font-semibold text-gray-800 mb-1">{model.title}</p>
-              <p className="text-gray-600 text-sm">{model.desc}</p>
+          <section className="mb-24">
+            <div className="label-caps mb-6">What You&apos;re Distributing</div>
+            <h2
+              className="font-display font-600 text-ink leading-[1.1] mb-10"
+              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
+            >
+              A platform built for<br />a new category.
+            </h2>
+            <div className="space-y-0 border-t border-[#E5E5E4]">
+              {[
+                { title: "Dual-path imaging", body: "Intraoperative CT + ultrasound — the only system in China with both. Compatible with C-arm, CBCT, and OBCT." },
+                { title: "AI surgical path planning", body: "Fully automatic 3D organ reconstruction in seconds. Real-time respiratory motion compensation. ~1mm accuracy (lung), ~3mm (kidney)." },
+                { title: "Procedure types", body: "Biopsy, ablation, drainage, stone extraction, particle implantation — across lung, kidney, and future indications." },
+                { title: "Business model", body: "Capital equipment + recurring consumables. Software licence and annual service contracts available." },
+              ].map((item) => (
+                <div key={item.title} className="py-6 border-b border-[#E5E5E4]">
+                  <div className="font-display font-600 text-[16px] text-ink mb-2">{item.title}</div>
+                  <div className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.6]">{item.body}</div>
+                </div>
+              ))}
             </div>
-          ))}
+          </section>
+
+          <div className="border-t border-[#E5E5E4] mb-24" />
+
+          <section className="mb-24">
+            <div className="label-caps mb-6">How We Work Together</div>
+            <h2
+              className="font-display font-600 text-ink leading-[1.1] mb-10"
+              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
+            >
+              Three partnership models.
+            </h2>
+            <div className="space-y-0 border-t border-[#E5E5E4]">
+              {[
+                { title: "Distribution", body: "Exclusive or preferential rights in a defined territory. Partner handles hospital sales, installation, and after-sales. Würzburg provides training, regulatory documentation, and technical support." },
+                { title: "Regulatory Partnership", body: "For partners with existing regulatory relationships (HSA Singapore, UAE MOH, Saudi SFDA). Joint regulatory strategy and cost-sharing on local submissions." },
+                { title: "Co-development / Licensing", body: "For partners interested in adapting the platform to new indications or integrating with existing systems. IP licensing and joint development agreements available." },
+              ].map((item) => (
+                <div key={item.title} className="py-6 border-b border-[#E5E5E4]">
+                  <div className="font-display font-600 text-[16px] text-ink mb-2">{item.title}</div>
+                  <div className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.6]">{item.body}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="border-t border-[#E5E5E4] mb-24" />
+
+          {/* Reimbursement */}
+          <section className="mb-24">
+            <div className="label-caps mb-6">Reimbursement & Revenue</div>
+            <h2
+              className="font-display font-600 text-ink leading-[1.1] mb-8"
+              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
+            >
+              National reimbursement<br />pathway already in place.
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#E5E5E4] mb-8">
+              <div className="p-8 border-b md:border-b-0 md:border-r border-[#E5E5E4]">
+                <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(32px, 5vw, 52px)" }}>
+                  C Code
+                </div>
+                <div className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5]">
+                  National consumables code secured. Provincial billing registration underway.
+                </div>
+              </div>
+              <div className="p-8 border-b md:border-b-0 md:border-r border-[#E5E5E4]">
+                <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(32px, 5vw, 52px)" }}>
+                  ¥3,310
+                </div>
+                <div className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5]">
+                  Per procedure (Guangdong pricing). Hospital self-pricing, market-adjusted.
+                </div>
+              </div>
+              <div className="p-8">
+                <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(32px, 5vw, 52px)" }}>
+                  2–3 yr
+                </div>
+                <div className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5]">
+                  Estimated hospital ROI payback period on capital equipment.
+                </div>
+              </div>
+            </div>
+            <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.7]">
+              National and local government policies increasingly support robot-assisted surgical charges.
+              Würzburg works with distribution partners to help hospitals navigate local billing registration.
+            </p>
+          </section>
+
+          <div className="border-t border-[#E5E5E4] mb-24" />
+
+          <section className="mb-10">
+            <div className="label-caps mb-6">Open Territories</div>
+            <h2
+              className="font-display font-600 text-ink leading-[1.1] mb-10"
+              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
+            >
+              Two priority regions.<br />Two partnerships.
+            </h2>
+          </section>
+
+          <div className="border border-ink p-10 mb-6">
+            <div className="label-caps mb-4" style={{ color: "#0B0B0B", opacity: 0.4 }}>Region 01</div>
+            <h3 className="font-display font-700 text-ink mb-1" style={{ fontSize: "clamp(26px, 4vw, 40px)" }}>Southeast Asia</h3>
+            <p className="text-[11px] font-500 tracking-[0.08em] uppercase text-[#6B6B6B] mb-6">
+              Singapore · Malaysia · Thailand · Indonesia · Philippines · Vietnam
+            </p>
+            <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.7] mb-8">
+              HSA (Singapore) approval serves as a reference clearance that accelerates
+              registration across ASEAN markets. Priority partnership type: regulatory + distribution
+              (combined or separate). Target: 12 hospitals in Year 1, 40 by Year 3.
+            </p>
+            <a
+              href="mailto:info@wuerzburg-dynamics.com?subject=Southeast%20Asia%20Partnership%20Enquiry"
+              className="px-7 py-3.5 bg-ink text-white text-[13px] font-500 tracking-[0.02em] hover:bg-[#2a2a2a] transition-colors duration-150 inline-block"
+            >
+              Enquire — Southeast Asia →
+            </a>
+          </div>
+
+          <div className="border border-ink p-10 mb-14">
+            <div className="label-caps mb-4" style={{ color: "#0B0B0B", opacity: 0.4 }}>Region 02</div>
+            <h3 className="font-display font-700 text-ink mb-1" style={{ fontSize: "clamp(26px, 4vw, 40px)" }}>Middle East</h3>
+            <p className="text-[11px] font-500 tracking-[0.08em] uppercase text-[#6B6B6B] mb-6">
+              UAE · Saudi Arabia · Qatar · Kuwait · Bahrain
+            </p>
+            <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.7] mb-8">
+              GCC government healthcare investment and Vision 2030 programmes create favourable
+              conditions for premium surgical technology. Private hospital networks mean high
+              willingness to pay. Target regulatory pathway: UAE MOH / Saudi SFDA.
+            </p>
+            <a
+              href="mailto:info@wuerzburg-dynamics.com?subject=Middle%20East%20Partnership%20Enquiry"
+              className="px-7 py-3.5 bg-ink text-white text-[13px] font-500 tracking-[0.02em] hover:bg-[#2a2a2a] transition-colors duration-150 inline-block"
+            >
+              Enquire — Middle East →
+            </a>
+          </div>
+
+          <div className="border-l-2 border-[#E5E5E4] pl-6 mb-24">
+            <div className="label-caps mb-3">Future Pipeline</div>
+            <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.7]">
+              Europe and North America are on our partnership roadmap for 2026–2027.
+              If you represent a distributor in Germany, France, Benelux, Brazil, or Mexico,
+              reach out to{" "}
+              <a href="mailto:info@wuerzburg-dynamics.com" className="text-ink underline underline-offset-3 hover:text-[#6B6B6B] transition-colors">
+                info@wuerzburg-dynamics.com
+              </a>
+              .
+            </p>
+          </div>
         </div>
-      </section>
+      </main>
 
-      {/* 5. Southeast Asia */}
-      <section id="sea" className="scroll-mt-8">
-        <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">Southeast Asia</p>
-        <h2 className="text-2xl font-bold mb-4">Using Singapore as the regulatory gateway to ASEAN.</h2>
-        <p className="text-gray-600 mb-4">
-          HSA (Health Sciences Authority, Singapore) approval serves as a reference clearance that
-          accelerates registration in Malaysia, Thailand, Indonesia, and other ASEAN markets. We are
-          prioritising Singapore as the first regulatory entry point in Southeast Asia.
-        </p>
-        <ul className="space-y-2 text-gray-600 text-sm mb-8">
-          <li>→ Current regulatory status: [to be confirmed — HSA application timeline]</li>
-          <li>→ Target procedures: lung biopsy, kidney stone extraction, ablation</li>
-          <li>→ Partnership priority: regulatory + distribution (combined or separate)</li>
-        </ul>
-        <a
-          href="mailto:contact@placeholder.com?subject=Southeast%20Asia%20Partnership%20Enquiry"
-          className="inline-block px-8 py-3 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-700 transition"
-        >
-          Enquire — Southeast Asia →
-        </a>
-      </section>
-
-      {/* 6. Middle East */}
-      <section id="me" className="scroll-mt-8">
-        <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">Middle East</p>
-        <h2 className="text-2xl font-bold mb-4">High willingness to pay. Private-sector-led adoption.</h2>
-        <p className="text-gray-600 mb-4">
-          The UAE and Saudi Arabia are investing heavily in health technology under Vision 2030
-          and national health transformation programmes. Private hospital networks and insurance-based
-          procurement mean significantly higher willingness to pay for premium surgical technology
-          compared to public-sector markets.
-        </p>
-        <ul className="space-y-2 text-gray-600 text-sm mb-8">
-          <li>→ Target regulatory pathway: UAE MOH / Saudi SFDA</li>
-          <li>→ Primary market: Private hospitals and specialist surgical centres</li>
-          <li>→ Partnership priority: Distribution + regulatory support</li>
-        </ul>
-        <a
-          href="mailto:contact@placeholder.com?subject=Middle%20East%20Partnership%20Enquiry"
-          className="inline-block px-8 py-3 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-700 transition"
-        >
-          Enquire — Middle East →
-        </a>
-      </section>
-
-      {/* 7. Other regions */}
-      <section className="border border-gray-100 rounded-lg p-6 text-center">
-        <p className="text-gray-500 text-sm">
-          Exploring expansion into Europe and North America.{" "}
-          <a
-            href="mailto:contact@placeholder.com?subject=International%20Partnership%20Enquiry"
-            className="underline text-gray-700"
-          >
-            Contact us to discuss your region.
-          </a>
-        </p>
-      </section>
-
-    </main>
+      <footer className="border-t border-[#E5E5E4] px-8 py-6">
+        <div className="max-w-[720px] mx-auto flex items-center justify-between">
+          <span className="text-[11px] text-[#6B6B6B] tracking-[0.04em]">
+            © 2025 Würzburg Dynamics · 深圳惟德精准医疗科技有限公司
+          </span>
+          <Link href="/" className="text-[11px] text-[#6B6B6B] hover:text-ink transition-colors">
+            ← Back to home
+          </Link>
+        </div>
+      </footer>
+    </div>
   );
 }

@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# playwright test artifacts
+.playwright-mcp/
+
+# separate project (not part of this site)
+B2B Website for Medtech/
+
+# scratch files
+app/page 2.tsx
