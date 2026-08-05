@@ -53,17 +53,17 @@ export default function Home() {
       {/* Hero */}
       <main className="flex-1 flex flex-col justify-center pt-24" style={{ position: "relative", zIndex: 1 }}>
         <div className="px-8 md:px-16 lg:px-24 xl:px-32 max-w-[1200px] mx-auto w-full">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16 min-h-[calc(100vh-96px)]">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 lg:gap-8 min-h-[calc(100vh-96px)]">
 
             {/* Text */}
-            <div className="flex-1 flex flex-col justify-center py-16">
+            <div className="flex-1 flex flex-col justify-center py-10">
               <ScrollReveal delay={0.1}>
-                <div className="label-caps mb-10">Soft-Tissue Surgical Robotics — Shenzhen</div>
+                <div className="label-caps mb-8">Soft-Tissue Surgical Robotics — Shenzhen</div>
               </ScrollReveal>
               <ScrollReveal delay={0.2} y={60}>
                 <h1
-                  className="font-display font-700 text-ink leading-[1.0] tracking-[-0.01em] mb-8"
-                  style={{ fontSize: "clamp(38px, 5.5vw, 76px)" }}
+                  className="font-display font-700 text-ink leading-[1.0] tracking-[-0.01em] mb-6"
+                  style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
                 >
                   China&apos;s leading<br />
                   intelligent surgical<br />
@@ -71,14 +71,14 @@ export default function Home() {
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={0.35}>
-                <p className="text-[17px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[480px] mb-14">
+                <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[440px] mb-10">
                   Würzburg Dynamics is the only company in China with dual-path
                   intraoperative CT + ultrasound robotic guidance — NMPA Class III
                   certified and deployed across 100+ hospitals.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.45}>
-                <div className="flex items-center gap-4 mb-16">
+                <div className="flex items-center gap-4 mb-10">
                   <Link
                     href="/investor"
                     className="px-7 py-3.5 bg-ink text-white text-[13px] font-500 tracking-[0.02em] hover:bg-[#2a2a2a] transition-colors duration-150"
@@ -95,11 +95,11 @@ export default function Home() {
               </ScrollReveal>
 
               {/* Trust badges */}
-              <div className="border-t border-[#E5E5E4] pt-10">
+              <div className="border-t border-[#E5E5E4] pt-8">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 sm:divide-x sm:divide-[#E5E5E4]">
                   {badges.map((b) => (
                     <div key={b.label} className="sm:px-8 first:pl-0 last:pr-0">
-                      <div className="font-display font-600 text-[17px] tracking-[0.01em] text-ink mb-1">
+                      <div className="font-display font-600 text-[15px] tracking-[0.01em] text-ink mb-1">
                         {b.label}
                       </div>
                       <div className="text-[11px] font-[400] text-[#6B6B6B] tracking-[0.01em] leading-[1.5]">
@@ -112,8 +112,8 @@ export default function Home() {
             </div>
 
             {/* Product image */}
-            <div className="lg:w-[480px] lg:flex-shrink-0 flex items-center justify-center py-8 lg:py-0">
-              <div className="relative w-full max-w-[440px] aspect-[4/3]">
+            <div className="flex-shrink-0 w-full sm:w-[200px] md:w-[320px] lg:w-[500px] flex items-center justify-center py-6 sm:py-0">
+              <div className="relative w-full max-w-[180px] sm:max-w-full md:max-w-[300px] lg:max-w-[470px] aspect-[4/3]">
                 <Image
                   src="/images/hero-system.png"
                   alt="Würzburg Dynamics surgical robot system"
