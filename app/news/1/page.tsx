@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
+import NewsFooter from "@/components/NewsFooter";
 
 export const metadata = {
   title: "Respiratory Rehabilitation Conference — Würzburg Dynamics News",
@@ -156,6 +157,7 @@ export default function Article1Page() {
           </div>
         </section>
 
+        <NewsFooter lang="en" currentId={1} />
       </main>
     </div>
   );

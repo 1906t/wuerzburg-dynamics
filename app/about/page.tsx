@@ -183,62 +183,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* The Problem We Solve */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
-          <SectionLine />
-          <div className="max-w-[1200px] mx-auto">
-            <ScrollReveal>
-              <div className="label-caps mb-6">The Problem We Solve</div>
-              <h2
-                className="font-display font-600 text-ink leading-[1.1] mb-4"
-                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
-              >
-                Interventional surgery<br />still runs on experience<br />and instinct.
-              </h2>
-              <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.8] max-w-[600px] mb-12">
-                Percutaneous procedures — biopsies, ablations, particle implants — have not been standardised in the way the rest of interventional medicine has. Five structural problems remain unsolved.
-              </p>
-            </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-[#E5E5E4]">
-              {[
-                {
-                  title: "Outcome depends on who holds the needle",
-                  body: "Percutaneous interventions have no standardised execution layer. Whether the needle finds the target depends on the surgeon's experience — making outcomes inconsistent across operators, hospitals, and career stages.",
-                },
-                {
-                  title: "The target moves. Guidance doesn't.",
-                  body: "Pulmonary lesions shift with every breath. CT imaging captures anatomy at a single moment. By the time the needle advances, the lesion has already moved. Standard systems have no real-time answer.",
-                },
-                {
-                  title: "Every missed pass multiplies risk",
-                  body: "When a needle misses, the procedure repeats. Each additional puncture raises the risk of pneumothorax, haemorrhage, and procedure time — complications caused by targeting failure, not the underlying disease.",
-                },
-                {
-                  title: "Radiation accumulates for the care team",
-                  body: "CT and X-ray-guided procedures keep personnel near the gantry. Across thousands of guided punctures, the cumulative radiation burden to surgeons, radiographers, and nurses is substantial.",
-                },
-                {
-                  title: "Complex cases are locked at elite centres",
-                  body: "Wide-angle trajectories, vascular-adjacent access, and cross-planar approaches require years of training. Most community hospitals cannot offer this care — patients travel hours for procedures that could be done locally.",
-                },
-                {
-                  title: "Experience cannot be transferred at scale",
-                  body: "A senior surgeon's intuition is not teachable in a residency programme. When that surgeon retires, the knowledge goes with them. The industry has no mechanism to codify and distribute procedural expertise.",
-                },
-              ].map((item, i) => (
-                <div
-                  key={item.title}
-                  className={`p-8 ${i % 2 === 0 ? "md:border-r border-[#E5E5E4]" : ""} ${i < 4 ? "border-b border-[#E5E5E4]" : ""}`}
-                >
-                  <div className="w-6 h-[2px] bg-[#CC0000] mb-4" />
-                  <div className="font-display font-600 text-[15px] text-ink mb-3">{item.title}</div>
-                  <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.7]">{item.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* The Founding Team */}
         <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
           <SectionLine />
@@ -416,16 +360,6 @@ export default function About() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[#E5E5E4] px-8 md:px-16 lg:px-24 xl:px-32 py-6" style={{ position: "relative", zIndex: 1 }}>
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-          <span className="text-[11px] text-[#6B6B6B] tracking-[0.04em]">
-            © 2025 Würzburg Dynamics · 深圳惟德精准医疗科技有限公司
-          </span>
-          <span className="text-[11px] text-[#6B6B6B] tracking-[0.04em]">
-            info@wuerzburg-dynamics.com
-          </span>
-        </div>
-      </footer>
     </div>
   );
 }

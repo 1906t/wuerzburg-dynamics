@@ -15,16 +15,28 @@ const badges = [
 
 const painPoints = [
   {
-    label: "高度依赖医生经验",
-    body: "传统经皮穿刺完全依赖术者技能，精度因人而异，学习曲线长，小病灶穿刺精度低。",
+    label: "结果取决于持针者",
+    body: "经皮介入手术缺乏标准化执行层。能否命中目标，取决于医生的经验与手感——导致手术结果因人而异、因院而异、因从业阶段而异。",
   },
   {
-    label: "仅靠术前影像定位",
-    body: "传统系统只依赖术前CT或超声，术中解剖形态变化无法实时追踪，导致定位偏差。",
+    label: "靶点在移动，影像却是静止的",
+    body: "肺部病灶随每次呼吸实时漂移。CT影像只捕捉某一瞬间的解剖位置，进针时靶点早已偏移。传统引导系统对此没有实时应对方案。",
   },
   {
-    label: "并发症风险高",
-    body: "多次穿刺尝试增加气胸、血胸、术中出血等并发症风险，耗时长、患者痛苦大。",
+    label: "每次穿刺失败都在叠加风险",
+    body: "穿刺未能命中，就得重复操作。每增加一次进针，气胸、出血和手术时长的风险随之上升——这些并发症的根源是精度不足，而非疾病本身。",
+  },
+  {
+    label: "医护人员长期承受辐射负担",
+    body: "CT和X光引导操作要求医护人员留守辐射区域。数以千计的手术积累下来，术者、放射科医生和护士所承受的累积辐射剂量不容忽视。",
+  },
+  {
+    label: "复杂病例被锁定在顶级中心",
+    body: "大角度路径、紧邻血管入路、跨平面穿刺需要多年经验积累。大多数基层医院无力开展此类手术——患者不得不舍近求远，奔赴大城市就诊。",
+  },
+  {
+    label: "经验无法大规模传承",
+    body: "资深术者的手感与直觉无法通过规培体系教授。一旦专家退休，知识随之流失。行业至今没有将临床经验编码化、可分发的机制。",
   },
 ];
 
@@ -57,11 +69,11 @@ export default function ZhHome() {
       <Nav lang="zh" />
 
       {/* Hero */}
-      <main className="flex-1 flex flex-col justify-center pt-24" style={{ position: "relative", zIndex: 1 }}>
-        <section className="px-8 md:px-16 lg:px-24 xl:px-32">
+      <main className="flex-1 flex flex-col justify-center pt-20 sm:pt-24" style={{ position: "relative", zIndex: 1 }}>
+        <section className="px-5 sm:px-8 md:px-16 lg:px-24 xl:px-32">
           <div className="max-w-[1200px] mx-auto w-full">
           {/* Two-column on md+: left = all text, right = image */}
-          <div className="flex flex-col md:flex-row md:items-center md:gap-12 min-h-[calc(100vh-96px)] py-10">
+          <div className="flex flex-col md:flex-row md:items-center md:gap-12 min-h-[70vh] md:min-h-[calc(100vh-96px)] py-8 md:py-10">
 
             {/* Left: all text content */}
             <div className="flex-1 flex flex-col justify-center">
@@ -146,28 +158,30 @@ export default function ZhHome() {
         </section>
 
         {/* Problem section */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+        <section className="relative py-16 md:py-24 px-5 sm:px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
-              <div className="label-caps mb-6">行业痛点</div>
+              <div className="label-caps mb-5">行业痛点</div>
               <h2
-                className="font-display font-600 text-ink leading-[1.1] mb-12"
-                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+                className="font-display font-600 text-ink leading-[1.1] mb-4"
+                style={{ fontSize: "clamp(22px, 3.5vw, 42px)" }}
               >
-                传统经皮穿刺：<br />依赖经验、定位不准、并发症多。
+                介入手术，<br className="hidden sm:block" />仍靠经验与直觉驱动。
               </h2>
+              <p className="text-[14px] md:text-[15px] font-[300] text-[#6B6B6B] leading-[1.8] max-w-[600px] mb-10">
+                经皮介入手术至今未实现其他介入医学领域早已完成的标准化。以下六大结构性痛点依然悬而未决。
+              </p>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#E5E5E4]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-[#E5E5E4]">
               {painPoints.map((p, i) => (
                 <div
                   key={p.label}
-                  className={`p-8 ${i < painPoints.length - 1 ? "border-b md:border-b-0 md:border-r border-[#E5E5E4]" : ""}`}
+                  className={`p-6 md:p-8 ${i % 2 === 0 ? "md:border-r border-[#E5E5E4]" : ""} ${i < 4 ? "border-b border-[#E5E5E4]" : ""}`}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/images/bullet-point.png" alt="" width={24} height={24} className="mb-4" />
-                  <div className="font-display font-600 text-[16px] text-ink mb-3">{p.label}</div>
-                  <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.65]">{p.body}</p>
+                  <div className="w-6 h-[2px] bg-[#CC0000] mb-4" />
+                  <div className="font-display font-600 text-[14px] md:text-[15px] text-ink mb-2">{p.label}</div>
+                  <p className="text-[12px] md:text-[13px] font-[300] text-[#6B6B6B] leading-[1.7]">{p.body}</p>
                 </div>
               ))}
             </div>
@@ -303,16 +317,6 @@ export default function ZhHome() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[#E5E5E4] px-8 md:px-16 lg:px-24 xl:px-32 py-6" style={{ position: "relative", zIndex: 1 }}>
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-          <span className="text-[11px] text-[#6B6B6B] tracking-[0.04em]">
-            © 2025 深圳惟德精准医疗科技有限公司
-          </span>
-          <span className="text-[11px] text-[#6B6B6B] tracking-[0.04em]">
-            info@wuerzburg-dynamics.com · +86 (0)755 8966 6820
-          </span>
-        </div>
-      </footer>
     </div>
   );
 }

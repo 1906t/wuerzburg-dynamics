@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
+import NewsFooter from "@/components/NewsFooter";
 
 export const metadata = {
   title: "Robotic Lung Nodule Biopsy — Würzburg Dynamics News",
@@ -117,6 +118,7 @@ export default function Article3Page() {
           </div>
         </section>
 
+        <NewsFooter lang="en" currentId={3} />
       </main>
     </div>
   );

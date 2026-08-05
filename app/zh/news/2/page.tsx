@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import NewsFooter from "@/components/NewsFooter";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
@@ -173,6 +174,7 @@ export default function ZhArticle2Page() {
           </div>
         </section>
 
+        <NewsFooter lang="zh" currentId={2} />
       </main>
     </div>
   );

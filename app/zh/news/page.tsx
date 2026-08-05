@@ -38,7 +38,7 @@ const articles = [
 
 export default function ZhNewsPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen font-noto">
       <BackgroundCanvas />
       <Nav lang="zh" />
 

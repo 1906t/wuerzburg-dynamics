@@ -360,16 +360,6 @@ export default function InvestorPage() {
         </div>
       </main>
 
-      <footer className="border-t border-[#E5E5E4] px-8 py-6">
-        <div className="max-w-[720px] mx-auto flex items-center justify-between">
-          <span className="text-[11px] text-[#6B6B6B] tracking-[0.04em]">
-            © 2025 Würzburg Dynamics · 深圳惟德精准医疗科技有限公司
-          </span>
-          <Link href="/" className="text-[11px] text-[#6B6B6B] hover:text-ink transition-colors">
-            ← Back to home
-          </Link>
-        </div>
-      </footer>
     </div>
   );
 }

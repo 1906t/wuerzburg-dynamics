@@ -153,16 +153,6 @@ export default function TeamPage() {
 
       </main>
 
-      <footer className="border-t border-[#E5E5E4] px-8 md:px-16 lg:px-24 xl:px-32 py-6" style={{ position: "relative", zIndex: 1 }}>
-        <div className="max-w-[1200px] mx-auto flex items-center justify-between">
-          <span className="text-[11px] text-[#6B6B6B] tracking-[0.04em]">
-            © 2025 Würzburg Dynamics · 深圳惟德精准医疗科技有限公司
-          </span>
-          <span className="text-[11px] text-[#6B6B6B] tracking-[0.04em]">
-            info@wuerzburg-dynamics.com
-          </span>
-        </div>
-      </footer>
     </div>
   );
 }
