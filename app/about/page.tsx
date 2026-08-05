@@ -26,8 +26,8 @@ const exploreCards = [
     title: "Leadership",
     body: "Meet the founding team of PhDs and engineers behind the platform.",
     href: "/about/team",
-    cta: "Coming soon",
-    disabled: true,
+    cta: "Meet the team →",
+    disabled: false,
   },
   {
     title: "Our Location",

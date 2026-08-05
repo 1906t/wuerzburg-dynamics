@@ -58,31 +58,48 @@ export default function Home() {
 
       {/* Hero */}
       <main className="flex-1 flex flex-col justify-center pt-24" style={{ position: "relative", zIndex: 1 }}>
-        <div className="px-8 md:px-16 lg:px-24 xl:px-32 max-w-[1200px] mx-auto w-full">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 lg:gap-8 min-h-[calc(100vh-96px)]">
+        <section className="px-8 md:px-16 lg:px-24 xl:px-32">
+          <div className="max-w-[1200px] mx-auto w-full">
+          {/* Two-column on md+: left = all text, right = image spanning full height */}
+          <div className="flex flex-col md:flex-row md:items-center md:gap-12 min-h-[calc(100vh-96px)] py-10">
 
-            {/* Text */}
-            <div className="flex-1 flex flex-col justify-center py-10">
+            {/* Left: all text content */}
+            <div className="flex-1 flex flex-col justify-center">
+
               <ScrollReveal delay={0.1}>
                 <div className="label-caps mb-8">Soft-Tissue Surgical Robotics — Shenzhen</div>
               </ScrollReveal>
+
               <ScrollReveal delay={0.2} y={60}>
-                <h1
-                  className="font-display font-700 text-ink leading-[1.0] tracking-[-0.01em] mb-6"
-                  style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
-                >
-                  China&apos;s leading<br />
-                  intelligent surgical<br />
-                  robot platform.
-                </h1>
+                {/* H1 row: on mobile, image sits beside h1; on md+, h1 is full width of left col */}
+                <div className="flex items-start gap-4 md:block mb-8">
+                  <h1
+                    className="flex-1 md:flex-none font-display font-700 text-ink leading-[1.0] tracking-[-0.01em] md:mb-0"
+                    style={{ fontSize: "clamp(30px, 5vw, 68px)" }}
+                  >
+                    China&apos;s leading intelligent surgical robot platform.
+                  </h1>
+                  {/* Mobile-only image — beside h1 */}
+                  <div className="md:hidden shrink-0 relative aspect-[4/3]" style={{ width: "38%" }}>
+                    <Image
+                      src="/images/hero-patient.png"
+                      alt="Würzburg Dynamics surgical robot in clinical use"
+                      fill
+                      style={{ objectFit: "contain", objectPosition: "top center" }}
+                      priority
+                    />
+                  </div>
+                </div>
               </ScrollReveal>
+
               <ScrollReveal delay={0.35}>
-                <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[440px] mb-10">
+                <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[480px] mb-10">
                   Würzburg Dynamics is the only company in China with dual-path
                   intraoperative CT + ultrasound robotic guidance — NMPA Class III
                   certified and deployed across 80+ hospitals.
                 </p>
               </ScrollReveal>
+
               <ScrollReveal delay={0.45}>
                 <div className="flex items-center gap-4 mb-10">
                   <Link
@@ -102,7 +119,7 @@ export default function Home() {
 
               {/* Trust badges */}
               <div className="border-t border-[#E5E5E4] pt-8">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-0 sm:divide-x sm:divide-[#E5E5E4]">
+                <div className="grid grid-cols-2 gap-6 sm:gap-0 sm:grid-cols-4 sm:divide-x sm:divide-[#E5E5E4]">
                   {badges.map((b) => (
                     <div key={b.label} className="sm:px-8 first:pl-0 last:pr-0">
                       <div className="font-display font-600 text-[15px] tracking-[0.01em] text-ink mb-1">
@@ -117,20 +134,22 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Product image */}
-            <div className="flex-shrink-0 w-full sm:w-[200px] md:w-[360px] lg:w-[510px] flex items-center justify-center py-6 sm:py-0">
-              <div className="relative w-full max-w-[180px] sm:max-w-full md:max-w-[340px] lg:max-w-[480px] aspect-[4/3]">
+            {/* Right: desktop-only image column */}
+            <div className="hidden md:flex flex-shrink-0 md:w-[340px] lg:w-[460px] xl:w-[520px] items-center justify-center">
+              <div className="relative w-full aspect-[4/3]">
                 <Image
                   src="/images/hero-patient.png"
                   alt="Würzburg Dynamics surgical robot in clinical use"
                   fill
-                  style={{ objectFit: "contain" }}
+                  style={{ objectFit: "contain", objectPosition: "center" }}
                   priority
                 />
               </div>
             </div>
+
           </div>
-        </div>
+          </div>
+        </section>
 
         {/* Problem section */}
         <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
@@ -178,7 +197,7 @@ export default function Home() {
             </ScrollReveal>
 
             {/* 3 animated TechCards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3">
               {subsystems.map((s, i) => (
                 <TechCard
                   key={s.name}
@@ -189,6 +208,9 @@ export default function Home() {
                 />
               ))}
             </div>
+            <p className="text-[11px] font-[400] text-[#AAAAAA] tracking-[0.07em] uppercase mt-3 mb-12">
+              Hover over each system to read ↑
+            </p>
 
           </div>
         </section>

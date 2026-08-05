@@ -26,8 +26,8 @@ const exploreCards = [
     title: "管理团队",
     body: "认识推动平台研发的博士及工程师团队。",
     href: "/zh/about/team",
-    cta: "即将上线",
-    disabled: true,
+    cta: "认识团队 →",
+    disabled: false,
   },
   {
     title: "公司地址",

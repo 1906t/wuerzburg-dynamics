@@ -58,30 +58,46 @@ export default function ZhHome() {
 
       {/* Hero */}
       <main className="flex-1 flex flex-col justify-center pt-24" style={{ position: "relative", zIndex: 1 }}>
-        <div className="px-8 md:px-16 lg:px-24 xl:px-32 max-w-[1200px] mx-auto w-full">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 lg:gap-8 min-h-[calc(100vh-96px)]">
+        <section className="px-8 md:px-16 lg:px-24 xl:px-32">
+          <div className="max-w-[1200px] mx-auto w-full">
+          {/* Two-column on md+: left = all text, right = image */}
+          <div className="flex flex-col md:flex-row md:items-center md:gap-12 min-h-[calc(100vh-96px)] py-10">
 
-            {/* Text */}
-            <div className="flex-1 flex flex-col justify-center py-10">
+            {/* Left: all text content */}
+            <div className="flex-1 flex flex-col justify-center">
+
               <ScrollReveal delay={0.1}>
                 <div className="label-caps mb-8">软组织智能手术机器人 — 深圳</div>
               </ScrollReveal>
+
               <ScrollReveal delay={0.2} y={60}>
-                <h1
-                  className="font-display font-700 text-ink leading-[1.0] tracking-[-0.01em] mb-6"
-                  style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
-                >
-                  全球领先的<br />
-                  软组织智能<br />
-                  手术机器人企业
-                </h1>
+                <div className="flex items-start gap-4 md:block mb-8">
+                  <h1
+                    className="flex-1 md:flex-none font-display font-700 text-ink leading-[1.0] tracking-[-0.01em]"
+                    style={{ fontSize: "clamp(30px, 5vw, 68px)" }}
+                  >
+                    全球领先的软组织智能手术机器人企业
+                  </h1>
+                  {/* Mobile-only image beside h1 */}
+                  <div className="md:hidden shrink-0 relative aspect-[4/3]" style={{ width: "38%" }}>
+                    <Image
+                      src="/images/hero-patient.png"
+                      alt="惟德精准手术机器人临床使用"
+                      fill
+                      style={{ objectFit: "contain", objectPosition: "top center" }}
+                      priority
+                    />
+                  </div>
+                </div>
               </ScrollReveal>
+
               <ScrollReveal delay={0.35}>
-                <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[440px] mb-10">
+                <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[480px] mb-10">
                   惟德精准是国内首家同时掌握术中CT与术中超声双技术路径的手术机器人企业，
                   国家三类证已获批，已在全国80余家医院完成商业化部署。
                 </p>
               </ScrollReveal>
+
               <ScrollReveal delay={0.45}>
                 <div className="flex items-center gap-4 mb-10">
                   <Link
@@ -101,7 +117,7 @@ export default function ZhHome() {
 
               {/* Trust badges */}
               <div className="border-t border-[#E5E5E4] pt-8">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-0 sm:divide-x sm:divide-[#E5E5E4]">
+                <div className="grid grid-cols-2 gap-6 sm:gap-0 sm:grid-cols-4 sm:divide-x sm:divide-[#E5E5E4]">
                   {badges.map((b) => (
                     <div key={b.label} className="sm:px-6 first:pl-0 last:pr-0">
                       <div className="font-display font-600 text-[15px] tracking-[0.01em] text-ink mb-1">{b.label}</div>
@@ -112,20 +128,22 @@ export default function ZhHome() {
               </div>
             </div>
 
-            {/* Product image */}
-            <div className="flex-shrink-0 w-full sm:w-[200px] md:w-[360px] lg:w-[510px] flex items-center justify-center py-6 sm:py-0">
-              <div className="relative w-full max-w-[180px] sm:max-w-full md:max-w-[340px] lg:max-w-[480px] aspect-[4/3]">
+            {/* Right: desktop-only image column */}
+            <div className="hidden md:flex flex-shrink-0 md:w-[340px] lg:w-[460px] xl:w-[520px] items-center justify-center">
+              <div className="relative w-full aspect-[4/3]">
                 <Image
                   src="/images/hero-patient.png"
                   alt="惟德精准手术机器人临床使用"
                   fill
-                  style={{ objectFit: "contain" }}
+                  style={{ objectFit: "contain", objectPosition: "center" }}
                   priority
                 />
               </div>
             </div>
+
           </div>
-        </div>
+          </div>
+        </section>
 
         {/* Problem section */}
         <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
@@ -170,7 +188,7 @@ export default function ZhHome() {
                 不改变现有手术流程，用数据代替经验猜测，用机械臂精准定位代替手动操作。
               </p>
             </ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3">
               {subsystems.map((s, i) => (
                 <TechCard
                   key={s.name}
@@ -181,6 +199,9 @@ export default function ZhHome() {
                 />
               ))}
             </div>
+            <p className="text-[11px] font-[400] text-[#AAAAAA] tracking-[0.07em] uppercase mt-3 mb-12">
+              悬停查看各系统详情 ↑
+            </p>
           </div>
         </section>
 
