@@ -4,12 +4,18 @@ import Nav from "@/components/Nav";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
+import TechCard from "@/components/TechCard";
 
 const badges = [
   { label: "Class III Certified", sub: "NMPA · China's highest device standard" },
-  { label: "100+ Hospitals", sub: "Certified clinical partners across China" },
+  { label: "80+ Hospitals", sub: "Certified clinical partners across China" },
+  { label: "3,000 Procedures", sub: "Clinical cases completed to date" },
   { label: "Series B", sub: "Backed by Fosun Pharma & institutional investors" },
 ];
+
+const hospitalLogos = [1,2,3,4,5,6,7,8,9,10,11,23,24,26,27,28,29,30].map(
+  (n) => `/images/hospitals/logo-${String(n).padStart(2, "0")}.png`
+);
 
 const painPoints = [
   {
@@ -74,7 +80,7 @@ export default function Home() {
                 <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[440px] mb-10">
                   Würzburg Dynamics is the only company in China with dual-path
                   intraoperative CT + ultrasound robotic guidance — NMPA Class III
-                  certified and deployed across 100+ hospitals.
+                  certified and deployed across 80+ hospitals.
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={0.45}>
@@ -96,7 +102,7 @@ export default function Home() {
 
               {/* Trust badges */}
               <div className="border-t border-[#E5E5E4] pt-8">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 sm:divide-x sm:divide-[#E5E5E4]">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-0 sm:divide-x sm:divide-[#E5E5E4]">
                   {badges.map((b) => (
                     <div key={b.label} className="sm:px-8 first:pl-0 last:pr-0">
                       <div className="font-display font-600 text-[15px] tracking-[0.01em] text-ink mb-1">
@@ -112,11 +118,11 @@ export default function Home() {
             </div>
 
             {/* Product image */}
-            <div className="flex-shrink-0 w-full sm:w-[200px] md:w-[320px] lg:w-[500px] flex items-center justify-center py-6 sm:py-0">
-              <div className="relative w-full max-w-[180px] sm:max-w-full md:max-w-[300px] lg:max-w-[470px] aspect-[4/3]">
+            <div className="flex-shrink-0 w-full sm:w-[200px] md:w-[360px] lg:w-[510px] flex items-center justify-center py-6 sm:py-0">
+              <div className="relative w-full max-w-[180px] sm:max-w-full md:max-w-[340px] lg:max-w-[480px] aspect-[4/3]">
                 <Image
-                  src="/images/hero-system.png"
-                  alt="Würzburg Dynamics surgical robot system"
+                  src="/images/hero-patient.png"
+                  alt="Würzburg Dynamics surgical robot in clinical use"
                   fill
                   style={{ objectFit: "contain" }}
                   priority
@@ -157,40 +163,33 @@ export default function Home() {
         <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
-            <div className="label-caps mb-6">The Platform</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-4"
-              style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
-            >
-              Three integrated systems.<br />One seamless procedure.
-            </h2>
-            <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-12 max-w-[560px]">
-              The platform doesn&apos;t change existing surgical workflow. It augments it —
-              replacing guesswork with data, and manual positioning with robotic precision.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {subsystems.map((s) => (
-                <div key={s.name} className="border-t-2 border-ink pt-6">
-                  <div className="flex items-baseline gap-3 mb-3">
-                    <span className="font-display font-700 text-[20px] text-ink">{s.name}</span>
-                    <span className="text-[12px] text-[#6B6B6B] font-[400]">{s.zh}</span>
-                  </div>
-                  <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.65]">{s.body}</p>
-                </div>
+            <ScrollReveal>
+              <div className="label-caps mb-6">The Platform</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-4"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                Three integrated systems.<br />One seamless procedure.
+              </h2>
+              <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[560px]">
+                The platform doesn&apos;t change existing surgical workflow. It augments it —
+                replacing guesswork with data, and manual positioning with robotic precision.
+              </p>
+            </ScrollReveal>
+
+            {/* 3 animated TechCards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 mb-12">
+              {subsystems.map((s, i) => (
+                <TechCard
+                  key={s.name}
+                  name={s.name}
+                  zh={s.zh}
+                  body={s.body}
+                  circleOffset={i * 10}
+                />
               ))}
             </div>
-            {/* Module images */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                { src: "/images/module-eye.png", label: "SkyEye — Optical Navigation" },
-                { src: "/images/module-brain.png", label: "SuperBrain — Intelligent Planning" },
-                { src: "/images/module-arm.png", label: "SmartArm — Precision Puncture" },
-              ].map((m) => (
-                <div key={m.label} className="relative aspect-[16/9] bg-[#F0F0EF] overflow-hidden">
-                  <Image src={m.src} alt={m.label} fill style={{ objectFit: "cover", objectPosition: "center" }} />
-                </div>
-              ))}
-            </div>
+
           </div>
         </section>
 
@@ -253,20 +252,35 @@ export default function Home() {
         <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
-            <div className="label-caps mb-6">Clinical Partners</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
-            >
-              Deployed across China&apos;s<br />leading hospitals.
-            </h2>
-            <div className="relative w-full aspect-[16/7] bg-white border border-[#E5E5E4] overflow-hidden">
-              <Image
-                src="/images/hospitals.png"
-                alt="Clinical partner hospitals"
-                fill
-                style={{ objectFit: "contain", objectPosition: "center" }}
-              />
+            <ScrollReveal>
+              <div className="label-caps mb-6">Clinical Partners</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-3"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                Deployed across China&apos;s<br />leading hospitals.
+              </h2>
+              <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[480px]">
+                3,000 procedures completed. 80+ certified clinical partners across China.
+              </p>
+            </ScrollReveal>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 border-t border-l border-[#E5E5E4]">
+              {hospitalLogos.map((src, i) => (
+                <div
+                  key={i}
+                  className="border-b border-r border-[#E5E5E4] flex items-center justify-center p-4"
+                  style={{ height: 90 }}
+                >
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={src}
+                      alt={`Clinical partner hospital ${i + 1}`}
+                      fill
+                      style={{ objectFit: "contain", objectPosition: "center" }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>

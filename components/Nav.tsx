@@ -14,6 +14,7 @@ export default function Nav({ lang }: NavProps) {
   const isEn = lang === "en";
 
   const home = isEn ? "/" : "/zh";
+  const about = isEn ? "/about" : "/zh/about";
   const investor = isEn ? "/investor" : "/zh/investor";
   const partner = isEn ? "/partner" : "/zh/partner";
   const toggleLang = isEn
@@ -23,8 +24,14 @@ export default function Nav({ lang }: NavProps) {
     : pathname.replace(/^\/zh/, "");
   const toggleLabel = isEn ? "中文" : "EN";
 
+  const isAbout = pathname.includes("about");
   const isInvestor = pathname.includes("investor");
   const isPartner = pathname.includes("partner");
+
+  const navLink = (active: boolean) =>
+    active
+      ? "text-[13px] font-500 text-ink border-b border-ink pb-px"
+      : "text-[13px] font-[450] text-[#6B6B6B] hover:text-ink transition-colors duration-150";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#E5E5E4]">
@@ -40,24 +47,13 @@ export default function Nav({ lang }: NavProps) {
           />
         </Link>
         <nav className="flex items-center gap-8">
-          <Link
-            href={investor}
-            className={
-              isInvestor
-                ? "text-[13px] font-500 text-ink border-b border-ink pb-px"
-                : "text-[13px] font-[450] text-[#6B6B6B] hover:text-ink transition-colors duration-150"
-            }
-          >
+          <Link href={about} className={navLink(isAbout)}>
+            {isEn ? "About" : "关于我们"}
+          </Link>
+          <Link href={investor} className={navLink(isInvestor)}>
             {isEn ? "Investors" : "投资人"}
           </Link>
-          <Link
-            href={partner}
-            className={
-              isPartner
-                ? "text-[13px] font-500 text-ink border-b border-ink pb-px"
-                : "text-[13px] font-[450] text-[#6B6B6B] hover:text-ink transition-colors duration-150"
-            }
-          >
+          <Link href={partner} className={navLink(isPartner)}>
             {isEn ? "Partners" : "合作伙伴"}
           </Link>
           <Link

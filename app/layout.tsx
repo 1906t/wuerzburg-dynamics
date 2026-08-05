@@ -2,9 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Würzberg Dynamics — Surgical Robotics",
+  title: "Würzburg Dynamics — Surgical Robotics",
   description:
-    "China's first dual-path soft-tissue interventional surgical robot. Class III certified. Deployed in 100+ hospitals.",
+    "China's first dual-path soft-tissue interventional surgical robot. Class III certified. Deployed in 80+ hospitals.",
+  metadataBase: new URL("https://wuerzburg-dynamics.vercel.app"),
+  openGraph: {
+    title: "Würzburg Dynamics — Surgical Robotics",
+    description: "China's first dual-path soft-tissue interventional surgical robot.",
+    url: "https://wuerzburg-dynamics.vercel.app",
+    siteName: "Würzburg Dynamics",
+  },
 };
 
 export default function RootLayout({
