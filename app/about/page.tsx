@@ -3,6 +3,63 @@ import Nav from "@/components/Nav";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
+import LeadershipGrid from "@/components/LeadershipGrid";
+import type { Leader } from "@/components/LeadershipGrid";
+
+const leaders: Leader[] = [
+  {
+    name: "Dr Weiguo Xie",
+    role: "Founder & CEO",
+    image: "/images/team/xie.png",
+    credentials: [
+      "M.Sc. Computational Engineering (Biomedical Engineering Track, Siemens Scholarship), Friedrich-Alexander University Erlangen-Nürnberg, Germany",
+      "Ph.D. Biomedical Engineering, University of Bern, Switzerland",
+      "National Major Talent Program Expert; Category A Leading Talent, Pingshan Julong Talent Program",
+    ],
+    bio: [
+      "Research focus: minimally invasive interventional surgery and robot-assisted surgery. Extensive industry experience spanning medical devices and robotics.",
+      "Completed 13 projects across Germany and Switzerland; developed 7 innovative product prototypes; filed 76 patents; obtained 1 China Class II medical device certificate.",
+    ],
+    former: ["Siemens Healthineers (Germany)", "Orthopedic Hospital, Heidelberg University Medical School (Germany)", "Surpath Medical GmbH (Germany) — CEO/CTO"],
+    formerLabel: "Former Positions",
+  },
+  {
+    name: "Dr Lu",
+    role: "Chief Scientist",
+    image: "/images/team/lu.png",
+    credentials: ["Ph.D. Medical Image Analysis, University of Bern, Switzerland"],
+    bio: ["20 years of industry experience in medical image processing, surgical navigation, ultrasound systems, and artificial intelligence.", "Formerly Head of the Image-Guided Soft Tissue Surgery Research Group at the ARTORG Center, University of Bern."],
+    former: ["Philips Healthcare", "ARTORG Center, University of Bern — Research Group Head"],
+    formerLabel: "Former Positions",
+  },
+  {
+    name: "Dr Huang",
+    role: "Chief AI Algorithm Officer",
+    image: "/images/team/huang.png",
+    credentials: ["Ph.D. Computer Science, Technical University of Dresden, Germany", "Returned overseas scholar; Full Professor", "Published 40+ academic papers including in Nature sub-journals; holder of 17 patents and software copyrights"],
+    bio: ["20 years of experience in computer science, big data, and artificial intelligence."],
+    former: ["German Cancer Research Center (DKFZ)", "Molecular Imaging Division, Siemens Healthineers (Germany)"],
+    formerLabel: "Former Positions",
+  },
+  {
+    name: "Dr Zhai",
+    role: "Software Architect & Quality Director",
+    image: "/images/team/zhai.jpg",
+    credentials: ["Ph.D. Systems Engineering, Southeast University", "Ph.D. Computer Science, University of Würzburg, Germany"],
+    bio: ["30 years of experience in software system design, product development, and quality management."],
+    former: ["Stochastikon GmbH (Germany)", "Surpath Medical"],
+    formerLabel: "Former Positions",
+  },
+  {
+    name: "Mr Zhang",
+    role: "Product Development Director",
+    image: "/images/team/zhang.png",
+    credentials: ["M.Sc. Mechanical Engineering, Xidian University", "Senior Engineer", "Holder of 50+ patents and 8 software copyrights"],
+    bio: ["30 years of experience in precision equipment and robotics R&D, product development, and technical team management."],
+    former: ["Director, Aerospace Power R&D Center", "Vice President of Technology & General Manager, Aerospace Digital Union", "Vice President of R&D, Shenzhen Anze Intelligent"],
+    formerLabel: "Former Positions",
+  },
+];
 
 const metrics = [
   { value: "100+", label: "Patents", sub: "Over 70% invention patents" },
@@ -123,6 +180,28 @@ export default function About() {
                 </p>
               </ScrollReveal>
             </div>
+          </div>
+        </section>
+
+        {/* The Founding Team */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">The Founding Team</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-4"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                Five overseas PhDs.<br />One shared problem.
+              </h2>
+              <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[560px] mb-10">
+                The founding team trained at Siemens, Philips, the University of Bern, and
+                Heidelberg University. Hover over each member to see their role — click to read
+                their full profile.
+              </p>
+            </ScrollReveal>
+            <LeadershipGrid leaders={leaders} />
           </div>
         </section>
 

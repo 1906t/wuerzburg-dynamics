@@ -3,6 +3,46 @@ import Nav from "@/components/Nav";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
+import LeadershipGrid from "@/components/LeadershipGrid";
+import type { Leader } from "@/components/LeadershipGrid";
+
+const zhLeaders: Leader[] = [
+  {
+    name: "谢卫国博士", role: "创始人兼首席执行官", image: "/images/team/xie.png",
+    credentials: ["计算工程硕士（生物医学工程方向，西门子奖学金），弗里德里希-亚历山大大学埃尔朗根-纽伦堡，德国", "生物医学工程博士，伯尔尼大学，瑞士", "国家重大人才项目专家；坪山聚龙英才计划A类领军人才"],
+    bio: ["研究方向：微创介入手术、机器人辅助手术。在医疗器械与机器人领域具有丰富的行业经验。", "在德国及瑞士完成13个项目，开发7款创新产品原型，申请76项专利，已获国家二类医疗器械注册证1项。"],
+    former: ["西门子医疗（德国）", "海德堡大学医学院骨科医院（德国）", "Surpath Medical GmbH（德国）— 首席执行官/首席技术官"],
+    formerLabel: "曾任职",
+  },
+  {
+    name: "卢博士", role: "首席科学家", image: "/images/team/lu.png",
+    credentials: ["医学图像分析博士，伯尔尼大学，瑞士"],
+    bio: ["拥有20年医学图像处理、手术导航、超声系统及人工智能行业经验。", "曾担任伯尔尼大学ARTORG研究中心图像引导软组织手术研究组组长。"],
+    former: ["飞利浦医疗", "伯尔尼大学ARTORG研究中心 — 研究组组长"],
+    formerLabel: "曾任职",
+  },
+  {
+    name: "黄博士", role: "首席AI算法科学家", image: "/images/team/huang.png",
+    credentials: ["计算机科学博士，德累斯顿工业大学，德国", "海归学者，正教授", "发表学术论文40余篇，含Nature子刊；持有17项专利及软件著作权"],
+    bio: ["拥有20年计算机科学、大数据与人工智能领域从业经验。"],
+    former: ["德国癌症研究中心（DKFZ）", "西门子医疗分子影像部门（德国）"],
+    formerLabel: "曾任职",
+  },
+  {
+    name: "翟博士", role: "软件架构师 / 质控认证总监", image: "/images/team/zhai.jpg",
+    credentials: ["系统工程博士，东南大学", "计算机科学博士，维尔茨堡大学，德国"],
+    bio: ["拥有30年软件系统设计、产品研发及质量管理经验。"],
+    former: ["Stochastikon GmbH（德国）", "Surpath Medical"],
+    formerLabel: "曾任职",
+  },
+  {
+    name: "张总监", role: "产品开发总监", image: "/images/team/zhang.png",
+    credentials: ["机械工程硕士，西安电子科技大学", "高级工程师", "持有50余项专利及8项软件著作权"],
+    bio: ["拥有30年精密装备与机器人研发、产品开发及技术团队管理经验。"],
+    former: ["航天动力研发中心主任", "航天数字联合技术副总裁兼总经理", "深圳安泽智能研发副总裁"],
+    formerLabel: "曾任职",
+  },
+];
 
 const metrics = [
   { value: "100+", label: "专利", sub: "逾70%为发明专利" },
@@ -115,6 +155,27 @@ export default function ZhAbout() {
                 </p>
               </ScrollReveal>
             </div>
+          </div>
+        </section>
+
+        {/* 管理团队 */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">管理团队</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-4"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                五位海归博士，<br />同解一道难题。
+              </h2>
+              <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[560px] mb-10">
+                创始团队来自西门子、飞利浦、伯尔尼大学及海德堡大学。
+                悬停查看各成员职位，点击阅读完整简介。
+              </p>
+            </ScrollReveal>
+            <LeadershipGrid leaders={zhLeaders} />
           </div>
         </section>
 

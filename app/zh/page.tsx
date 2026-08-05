@@ -74,7 +74,7 @@ export default function ZhHome() {
                 <div className="flex items-start gap-4 md:block mb-8">
                   <h1
                     className="flex-1 md:flex-none font-display font-700 text-ink leading-[1.0] tracking-[-0.01em]"
-                    style={{ fontSize: "clamp(30px, 5vw, 68px)" }}
+                    style={{ fontSize: "clamp(36px, 5vw, 72px)" }}
                   >
                     全球领先的软组织智能手术机器人企业
                   </h1>
@@ -92,7 +92,7 @@ export default function ZhHome() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.35}>
-                <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[480px] mb-10">
+                <p className="text-[17px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[560px] mb-10">
                   惟德精准是国内首家同时掌握术中CT与术中超声双技术路径的手术机器人企业，
                   国家三类证已获批，已在全国80余家医院完成商业化部署。
                 </p>
@@ -164,6 +164,8 @@ export default function ZhHome() {
                   key={p.label}
                   className={`p-8 ${i < painPoints.length - 1 ? "border-b md:border-b-0 md:border-r border-[#E5E5E4]" : ""}`}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/bullet-point.png" alt="" width={24} height={24} className="mb-4" />
                   <div className="font-display font-600 text-[16px] text-ink mb-3">{p.label}</div>
                   <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.65]">{p.body}</p>
                 </div>
@@ -251,7 +253,9 @@ export default function ZhHome() {
                 { title: "胸腔镜定位", body: "自动三维重建与术前病灶定位，辅助胸腔镜切除。" },
                 { title: "粒子/药物植入", body: "靶向放射性粒子植入治疗，精准引导植入路径。" },
               ].map((a) => (
-                <div key={a.title} className="border-t-2 border-ink pt-5">
+                <div key={a.title}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/bullet-point.png" alt="" width={22} height={22} className="mb-3" />
                   <div className="font-display font-600 text-[15px] text-ink mb-2">{a.title}</div>
                   <p className="text-[12px] font-[300] text-[#6B6B6B] leading-[1.6]">{a.body}</p>
                 </div>

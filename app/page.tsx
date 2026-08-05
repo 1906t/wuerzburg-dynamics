@@ -75,7 +75,7 @@ export default function Home() {
                 <div className="flex items-start gap-4 md:block mb-8">
                   <h1
                     className="flex-1 md:flex-none font-display font-700 text-ink leading-[1.0] tracking-[-0.01em] md:mb-0"
-                    style={{ fontSize: "clamp(30px, 5vw, 68px)" }}
+                    style={{ fontSize: "clamp(36px, 5vw, 72px)" }}
                   >
                     China&apos;s leading intelligent surgical robot platform.
                   </h1>
@@ -93,7 +93,7 @@ export default function Home() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.35}>
-                <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.65] max-w-[480px] mb-10">
+                <p className="text-[17px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[560px] mb-10">
                   Würzburg Dynamics is the only company in China with dual-path
                   intraoperative CT + ultrasound robotic guidance — NMPA Class III
                   certified and deployed across 80+ hospitals.
@@ -170,6 +170,8 @@ export default function Home() {
                   key={p.label}
                   className={`p-8 ${i < painPoints.length - 1 ? "border-b md:border-b-0 md:border-r border-[#E5E5E4]" : ""}`}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/bullet-point.png" alt="" width={24} height={24} className="mb-4" />
                   <div className="font-display font-600 text-[16px] text-ink mb-3">{p.label}</div>
                   <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.65]">{p.body}</p>
                 </div>
@@ -261,7 +263,9 @@ export default function Home() {
                 { title: "Thoracoscopic Localisation", body: "Automated 3D reconstruction and preoperative lesion localisation for thoracoscopic resection." },
                 { title: "Drug & Seed Implantation", body: "Targeted radioactive seed therapy with precise implantation guidance." },
               ].map((a) => (
-                <div key={a.title} className="border-t-2 border-ink pt-5">
+                <div key={a.title}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/bullet-point.png" alt="" width={22} height={22} className="mb-3" />
                   <div className="font-display font-600 text-[15px] text-ink mb-2">{a.title}</div>
                   <p className="text-[12px] font-[300] text-[#6B6B6B] leading-[1.6]">{a.body}</p>
                 </div>
