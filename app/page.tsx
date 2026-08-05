@@ -70,13 +70,13 @@ export default function Home() {
 
       {/* Hero */}
       <main className="flex-1 flex flex-col justify-center pt-20 sm:pt-24" style={{ position: "relative", zIndex: 1 }}>
-        <section className="px-5 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <div className="max-w-[1200px] mx-auto w-full">
-          {/* Two-column on md+: left = all text, right = image spanning full height */}
-          <div className="flex flex-col md:flex-row md:items-center md:gap-12 min-h-[70vh] md:min-h-[calc(100vh-96px)] py-8 md:py-10">
+        <section className="pl-5 sm:pl-8 md:pl-16 lg:pl-24 xl:pl-32 overflow-hidden">
+          <div className="w-full">
+          {/* Two-column: text left, image right bleeding to edge */}
+          <div className="flex flex-col md:flex-row md:items-center md:gap-0 min-h-[70vh] md:min-h-[calc(100vh-96px)] py-8 md:py-0">
 
             {/* Left: all text content */}
-            <div className="flex-1 flex flex-col justify-center">
+            <div className="flex-1 flex flex-col justify-center md:pr-12 py-10 md:py-16">
 
               <ScrollReveal delay={0.1}>
                 <div className="label-caps mb-8">Soft-Tissue Surgical Robotics — Shenzhen</div>
@@ -92,10 +92,10 @@ export default function Home() {
                     China&apos;s leading intelligent surgical robot platform.
                   </h1>
                   {/* Mobile-only image — beside h1 */}
-                  <div className="md:hidden shrink-0 relative aspect-[4/3]" style={{ width: "38%" }}>
+                  <div className="md:hidden shrink-0 relative aspect-[1/1]" style={{ width: "42%" }}>
                     <Image
-                      src="/images/hero-patient.png"
-                      alt="Würzburg Dynamics surgical robot in clinical use"
+                      src="/images/hero-system.png"
+                      alt="Würzburg Dynamics dual surgical robot system"
                       fill
                       style={{ objectFit: "contain", objectPosition: "top center" }}
                       priority
@@ -146,16 +146,46 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: desktop-only image column */}
-            <div className="hidden md:flex flex-shrink-0 md:w-[340px] lg:w-[460px] xl:w-[520px] items-center justify-center">
-              <div className="relative w-full aspect-[4/3]">
-                <Image
-                  src="/images/hero-patient.png"
-                  alt="Würzburg Dynamics surgical robot in clinical use"
-                  fill
-                  style={{ objectFit: "contain", objectPosition: "center" }}
-                  priority
-                />
+            {/* Right: desktop-only — wider column, bleeds to viewport edge */}
+            <div className="hidden md:block flex-[1.3] self-stretch relative min-h-[420px]">
+              {/* Left-edge fade: text side bleeds into image */}
+              <div
+                className="absolute inset-y-0 left-0 w-32 z-10 pointer-events-none"
+                style={{ background: "linear-gradient(to right, white, transparent)" }}
+              />
+
+              <Image
+                src="/images/hero-system.png"
+                alt="Würzburg Dynamics dual surgical robot system"
+                fill
+                style={{ objectFit: "contain", objectPosition: "center" }}
+                priority
+              />
+
+              {/* Floating credential badges */}
+              <div className="absolute bottom-16 left-10 z-20 flex flex-col gap-3">
+                <div className="bg-white border border-[#E5E5E4] shadow-sm px-4 py-2.5 flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#0B0B0B] flex items-center justify-center flex-shrink-0">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-600 text-ink tracking-[0.04em] uppercase">Class III NMPA</div>
+                    <div className="text-[10px] font-[300] text-[#6B6B6B]">China&apos;s highest device standard</div>
+                  </div>
+                </div>
+                <div className="bg-white border border-[#E5E5E4] shadow-sm px-4 py-2.5 flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#0B0B0B] flex items-center justify-center flex-shrink-0">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-600 text-ink tracking-[0.04em] uppercase">≤ 0.8 mm accuracy</div>
+                    <div className="text-[10px] font-[300] text-[#6B6B6B]">Lung · Kidney · Liver</div>
+                  </div>
+                </div>
               </div>
             </div>
 

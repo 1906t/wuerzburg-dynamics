@@ -136,7 +136,6 @@ export default function ZhPartnerPage() {
               <a href="mailto:info@wuerzburg-dynamics.com" className="text-ink underline underline-offset-3 hover:text-[#6B6B6B] transition-colors">
                 info@wuerzburg-dynamics.com
               </a>
-              。
             </p>
           </div>
         </div>

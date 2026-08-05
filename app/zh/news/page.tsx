@@ -38,7 +38,7 @@ const articles = [
 
 export default function ZhNewsPage() {
   return (
-    <div className="flex flex-col min-h-screen font-noto">
+    <div className="flex flex-col min-h-screen">
       <BackgroundCanvas />
       <Nav lang="zh" />
 
@@ -55,7 +55,7 @@ export default function ZhNewsPage() {
                 className="font-display font-700 text-ink leading-[1.05] tracking-[-0.01em]"
                 style={{ fontSize: "clamp(32px, 4.5vw, 60px)" }}
               >
-                来自临床一线的声音。
+                来自临床一线的声音
               </h1>
             </ScrollReveal>
           </div>

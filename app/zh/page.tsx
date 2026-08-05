@@ -70,13 +70,13 @@ export default function ZhHome() {
 
       {/* Hero */}
       <main className="flex-1 flex flex-col justify-center pt-20 sm:pt-24" style={{ position: "relative", zIndex: 1 }}>
-        <section className="px-5 sm:px-8 md:px-16 lg:px-24 xl:px-32">
-          <div className="max-w-[1200px] mx-auto w-full">
-          {/* Two-column on md+: left = all text, right = image */}
-          <div className="flex flex-col md:flex-row md:items-center md:gap-12 min-h-[70vh] md:min-h-[calc(100vh-96px)] py-8 md:py-10">
+        <section className="pl-5 sm:pl-8 md:pl-16 lg:pl-24 xl:pl-32 overflow-hidden">
+          <div className="w-full">
+          {/* Two-column: text left, image right bleeding to edge */}
+          <div className="flex flex-col md:flex-row md:items-center md:gap-0 min-h-[70vh] md:min-h-[calc(100vh-96px)] py-8 md:py-0">
 
             {/* Left: all text content */}
-            <div className="flex-1 flex flex-col justify-center">
+            <div className="flex-1 flex flex-col justify-center md:pr-12 py-10 md:py-16">
 
               <ScrollReveal delay={0.1}>
                 <div className="label-caps mb-8">软组织智能手术机器人 — 深圳</div>
@@ -140,16 +140,46 @@ export default function ZhHome() {
               </div>
             </div>
 
-            {/* Right: desktop-only image column */}
-            <div className="hidden md:flex flex-shrink-0 md:w-[340px] lg:w-[460px] xl:w-[520px] items-center justify-center">
-              <div className="relative w-full aspect-[4/3]">
-                <Image
-                  src="/images/hero-patient.png"
-                  alt="惟德精准手术机器人临床使用"
-                  fill
-                  style={{ objectFit: "contain", objectPosition: "center" }}
-                  priority
-                />
+            {/* Right: desktop-only — wider column, bleeds to viewport edge */}
+            <div className="hidden md:block flex-[1.3] self-stretch relative min-h-[420px]">
+              {/* Left-edge fade */}
+              <div
+                className="absolute inset-y-0 left-0 w-32 z-10 pointer-events-none"
+                style={{ background: "linear-gradient(to right, white, transparent)" }}
+              />
+
+              <Image
+                src="/images/hero-system.png"
+                alt="惟德精准双系统手术机器人"
+                fill
+                style={{ objectFit: "contain", objectPosition: "center" }}
+                priority
+              />
+
+              {/* Floating credential badges */}
+              <div className="absolute bottom-16 left-10 z-20 flex flex-col gap-3">
+                <div className="bg-white border border-[#E5E5E4] shadow-sm px-4 py-2.5 flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#0B0B0B] flex items-center justify-center flex-shrink-0">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-600 text-ink tracking-[0.04em] uppercase">国家三类医疗器械注册证</div>
+                    <div className="text-[10px] font-[300] text-[#6B6B6B]">国内最高级别器械注册认证</div>
+                  </div>
+                </div>
+                <div className="bg-white border border-[#E5E5E4] shadow-sm px-4 py-2.5 flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#0B0B0B] flex items-center justify-center flex-shrink-0">
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-600 text-ink tracking-[0.04em] uppercase">穿刺精度 ≤ 0.8mm</div>
+                    <div className="text-[10px] font-[300] text-[#6B6B6B]">肺部 · 肾脏 · 肝脏</div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -167,7 +197,7 @@ export default function ZhHome() {
                 className="font-display font-600 text-ink leading-[1.1] mb-4"
                 style={{ fontSize: "clamp(22px, 3.5vw, 42px)" }}
               >
-                介入手术，<br className="hidden sm:block" />仍靠经验与直觉驱动。
+                介入手术，<br className="hidden sm:block" />仍靠经验与直觉驱动
               </h2>
               <p className="text-[14px] md:text-[15px] font-[300] text-[#6B6B6B] leading-[1.8] max-w-[600px] mb-10">
                 经皮介入手术至今未实现其他介入医学领域早已完成的标准化。以下六大结构性痛点依然悬而未决。
@@ -198,7 +228,7 @@ export default function ZhHome() {
                 className="font-display font-600 text-ink leading-[1.1] mb-4"
                 style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
               >
-                三大系统协同，<br />一套流程完成手术。
+                三大系统协同，<br />一套流程完成手术
               </h2>
               <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[560px]">
                 不改变现有手术流程，用数据代替经验猜测，用机械臂精准定位代替手动操作。
@@ -230,7 +260,7 @@ export default function ZhHome() {
               className="font-display font-600 text-ink leading-[1.1] mb-12"
               style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
             >
-              四步完成手术。<br />一次CT，亚毫米精度。
+              四步完成手术，<br />一次CT，亚毫米精度
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-[#E5E5E4] mb-10">
               {[
