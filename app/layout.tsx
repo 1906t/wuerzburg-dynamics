@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Würzburg Dynamics — Surgical Robotics",
@@ -21,7 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className="min-h-full bg-white">{children}</body>
+      <body className="min-h-full bg-white">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -17,6 +17,7 @@ export default function Nav({ lang }: NavProps) {
   const about = isEn ? "/about" : "/zh/about";
   const investor = isEn ? "/investor" : "/zh/investor";
   const partner = isEn ? "/partner" : "/zh/partner";
+  const news = isEn ? "/news" : "/zh/news";
   const toggleLang = isEn
     ? pathname.replace(/^\//, "/zh/").replace(/^\/zh\/zh/, "/zh")
     : pathname === "/zh"
@@ -27,6 +28,7 @@ export default function Nav({ lang }: NavProps) {
   const isAbout = pathname.includes("about");
   const isInvestor = pathname.includes("investor");
   const isPartner = pathname.includes("partner");
+  const isNews = pathname.includes("news");
 
   const navLink = (active: boolean) =>
     active
@@ -55,6 +57,9 @@ export default function Nav({ lang }: NavProps) {
           </Link>
           <Link href={partner} className={navLink(isPartner)}>
             {isEn ? "Partners" : "合作伙伴"}
+          </Link>
+          <Link href={news} className={navLink(isNews)}>
+            {isEn ? "News" : "新闻"}
           </Link>
           <Link
             href={toggleLang}
