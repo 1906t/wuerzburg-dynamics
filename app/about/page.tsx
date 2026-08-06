@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import BackToTop from "@/components/BackToTop";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
@@ -357,6 +358,7 @@ export default function About() {
           </div>
         </section>
 
+        <BackToTop label="Back to top" />
       </main>
 
       {/* Footer */}

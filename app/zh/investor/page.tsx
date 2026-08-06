@@ -1,5 +1,9 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import BackToTop from "@/components/BackToTop";
+import BackgroundCanvas from "@/components/BackgroundCanvas";
+import ScrollReveal from "@/components/ScrollReveal";
+import SectionLine from "@/components/SectionLine";
 
 export const metadata = {
   title: "投资人信息 — 惟德精准",
@@ -54,40 +58,49 @@ const market = [
 
 export default function ZhInvestorPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen">
+      <BackgroundCanvas />
       <Nav lang="zh" />
 
-      <main className="pt-36 pb-32 px-6">
-        <div className="max-w-[720px] mx-auto">
+      <main className="flex-1 pt-24" style={{ position: "relative", zIndex: 1 }}>
 
-          <div className="mb-24">
-            <div className="label-caps mb-5">投资人信息</div>
-            <h1
-              className="font-display font-700 text-ink leading-[1.05] tracking-[-0.01em] mb-6"
-              style={{ fontSize: "clamp(36px, 5vw, 60px)" }}
-            >
-              构建经皮介入<br />
-              手术机器人的<br />
-              全球平台。
-            </h1>
-            <p className="text-[16px] font-[300] text-[#6B6B6B] leading-[1.7]">
-              惟德精准是国内唯一同时掌握术中CT与超声双技术路径的经皮介入手术机器人企业，
-              已获国家三类证，在全国100余家医院完成商业化部署，并向国际市场积极拓展。
-            </p>
+        {/* Hero */}
+        <section className="px-8 md:px-16 lg:px-24 xl:px-32 py-24 min-h-[60vh] flex items-center">
+          <div className="max-w-[1200px] mx-auto w-full">
+            <ScrollReveal delay={0.1}>
+              <div className="label-caps mb-8">投资人信息</div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2} y={60}>
+              <h1
+                className="font-display font-700 text-ink leading-[1.0] tracking-[-0.01em] mb-8"
+                style={{ fontSize: "clamp(36px, 5vw, 72px)" }}
+              >
+                构建经皮介入<br />手术机器人的<br />全球平台
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.35}>
+              <p className="text-[17px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[560px]">
+                惟德精准是国内唯一同时掌握术中CT与超声双技术路径的经皮介入手术机器人企业，
+                已获国家三类证，在全国100余家医院完成商业化部署，并向国际市场积极拓展。
+              </p>
+            </ScrollReveal>
           </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Clinical proof */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">临床验证</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-8"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              已部署，不只是已获批。
-            </h2>
-            <div className="grid grid-cols-2 gap-0 border border-[#E5E5E4] mb-10">
+        {/* Clinical proof */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">临床验证</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-10"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                已部署，不只是已获批
+              </h2>
+            </ScrollReveal>
+            <div className="grid grid-cols-2 gap-0 border border-[#E5E5E4] mb-10 max-w-[600px]">
               <div className="p-8 border-r border-[#E5E5E4]">
                 <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(52px, 8vw, 88px)" }}>
                   100+
@@ -105,90 +118,103 @@ export default function ZhInvestorPage() {
                 </div>
               </div>
             </div>
-            <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7]">
-              肺部产品2024年6月取得国家三类注册证，现处于商业化扩张阶段。
-              穿刺精度约1mm，兼容C臂、CBCT、OBCT等多种影像平台。
-              国家高新技术企业，国家级专精特新"小巨人"。
-            </p>
-          </section>
+            <ScrollReveal delay={0.1}>
+              <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.8] max-w-[640px]">
+                肺部产品2024年6月取得国家三类注册证，现处于商业化扩张阶段。
+                穿刺精度约1mm，兼容C臂、CBCT、OBCT等多种影像平台。
+                国家高新技术企业，国家级专精特新"小巨人"。
+              </p>
+            </ScrollReveal>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Market */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">市场空间</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              四大适应症，<br />数亿级患者市场。
-            </h2>
-            <div className="grid grid-cols-2 gap-0 border border-[#E5E5E4] mb-8">
+        {/* Market */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">市场空间</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-12"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                四大适应症，<br />数亿级患者市场
+              </h2>
+            </ScrollReveal>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-[#E5E5E4]">
               {market.map((m, i) => (
                 <div
                   key={m.organ}
-                  className={`p-6 ${i % 2 === 0 ? "border-r border-[#E5E5E4]" : ""} ${i < 2 ? "border-b border-[#E5E5E4]" : ""}`}
+                  className={`p-8 ${i < 3 ? "border-r border-[#E5E5E4]" : ""}`}
                 >
-                  <div className="font-display font-700 text-ink leading-none mb-2" style={{ fontSize: "clamp(32px, 5vw, 52px)" }}>
+                  <div className="font-display font-700 text-ink leading-none mb-2" style={{ fontSize: "clamp(28px, 3.5vw, 44px)" }}>
                     {m.patients}
                   </div>
-                  <div className="text-[13px] font-500 text-ink mb-1">{m.organ}</div>
-                  <div className="text-[11px] font-[400] text-[#6B6B6B] leading-[1.5]">{m.note}</div>
+                  <div className="text-[14px] font-600 text-ink mb-1">{m.organ}</div>
+                  <div className="text-[12px] font-[400] text-[#6B6B6B] leading-[1.5]">{m.note}</div>
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Pipeline */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">产品管线</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              平台型企业，<br />不只是单一产品。
-            </h2>
+        {/* Pipeline */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">产品管线</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-12"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                平台型企业，<br />不只是单一产品
+              </h2>
+            </ScrollReveal>
             <div className="space-y-0">
               {pipeline.map((item, i) => (
-                <div key={item.name} className="flex gap-8 pb-10">
-                  <div className="flex flex-col items-center pt-1 flex-shrink-0 w-[1px] relative ml-3">
-                    <div className="w-2 h-2 rounded-full bg-ink flex-shrink-0 z-10" />
-                    {i < pipeline.length - 1 && (
-                      <div className="flex-1 w-px bg-[#E5E5E4] mt-2" style={{ minHeight: "60px" }} />
-                    )}
-                  </div>
-                  <div className="flex-1 -mt-0.5 pb-2">
-                    <div className="flex items-baseline justify-between gap-4 mb-1">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-500 tracking-[0.1em] uppercase px-2 py-0.5 border border-[#E5E5E4] text-[#6B6B6B]">
-                          {item.phase}
-                        </span>
-                        <span className="font-display font-600 text-[17px] text-ink">{item.name}</span>
-                      </div>
-                      <span className="text-[12px] text-[#6B6B6B] font-[400] flex-shrink-0">{item.year}</span>
+                <ScrollReveal key={item.name} delay={i * 0.1}>
+                  <div className="flex gap-8 pb-10">
+                    <div className="flex flex-col items-center pt-1 flex-shrink-0 w-[1px] relative ml-3">
+                      <div className="w-2 h-2 rounded-full bg-ink flex-shrink-0 z-10" />
+                      {i < pipeline.length - 1 && (
+                        <div className="flex-1 w-px bg-[#E5E5E4] mt-2" style={{ minHeight: "60px" }} />
+                      )}
                     </div>
-                    <p className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5] mt-2">{item.indication}</p>
-                    <p className="text-[11px] font-500 text-ink mt-1 tracking-[0.03em]">{item.status}</p>
+                    <div className="flex-1 -mt-0.5 pb-2">
+                      <div className="flex items-baseline justify-between gap-4 mb-1">
+                        <div className="flex items-center gap-3">
+                          <span className="text-[10px] font-500 tracking-[0.1em] uppercase px-2 py-0.5 border border-[#E5E5E4] text-[#6B6B6B]">
+                            {item.phase}
+                          </span>
+                          <span className="font-display font-600 text-[17px] text-ink">{item.name}</span>
+                        </div>
+                        <span className="text-[12px] text-[#6B6B6B] font-[400] flex-shrink-0">{item.year}</span>
+                      </div>
+                      <p className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5] mt-2">{item.indication}</p>
+                      <p className="text-[11px] font-500 text-ink mt-1 tracking-[0.03em]">{item.status}</p>
+                    </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Financing */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">融资历程</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              累计融资人民币<br />2.4亿+，四轮完成。
-            </h2>
-            <div className="border-t border-[#E5E5E4]">
+        {/* Financing */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">融资历程</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-12"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                累计融资人民币<br />2.4亿+，四轮完成
+              </h2>
+            </ScrollReveal>
+            <div className="border-t border-[#E5E5E4] max-w-[720px]">
               {financing.map((f) => (
                 <div key={f.round} className="flex items-baseline justify-between py-5 border-b border-[#E5E5E4]">
                   <span className="font-display font-600 text-[17px] text-ink">{f.round}</span>
@@ -199,20 +225,23 @@ export default function ZhInvestorPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Investors */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">现有投资方</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              战略与财务资本<br />双重背书。
-            </h2>
-            <div className="border-t border-[#E5E5E4]">
+        {/* Investors */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">现有投资方</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-12"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                战略与财务资本<br />双重背书
+              </h2>
+            </ScrollReveal>
+            <div className="border-t border-[#E5E5E4] max-w-[720px]">
               {investors.map((inv) => (
                 <div key={inv.name} className="flex items-baseline justify-between py-5 border-b border-[#E5E5E4] group">
                   <span className="font-display font-600 text-[17px] text-ink group-hover:translate-x-0.5 transition-transform duration-150">
@@ -222,36 +251,37 @@ export default function ZhInvestorPage() {
                 </div>
               ))}
             </div>
-          </section>
-
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          <section><div className="label-caps mb-6">下一步</div></section>
-        </div>
-
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="bg-ink px-12 py-16 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-            <div>
-              <h2
-                className="font-display font-700 text-white leading-[1.05] mb-3"
-                style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
-              >
-                与我们的团队预约沟通。
-              </h2>
-              <p className="text-[14px] text-white/60 font-[300] max-w-[420px] leading-[1.6]">
-                我们正在与对精准手术机器人全球化拓展感兴趣的战略投资人和合作伙伴进行精选接触。
-              </p>
-            </div>
-            <a
-              href="mailto:info@wuerzburg-dynamics.com?subject=投资人咨询"
-              className="flex-shrink-0 px-8 py-4 bg-white text-ink text-[13px] font-500 tracking-[0.03em] hover:bg-[#F5F5F4] transition-colors duration-150 inline-block text-center"
-            >
-              发送邮件联系 →
-            </a>
           </div>
-        </div>
-      </main>
+        </section>
 
+        {/* CTA */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <div className="bg-ink px-12 py-16 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div>
+                <h2
+                  className="font-display font-700 text-white leading-[1.05] mb-3"
+                  style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+                >
+                  与我们的团队预约沟通
+                </h2>
+                <p className="text-[14px] text-white/60 font-[300] max-w-[420px] leading-[1.6]">
+                  我们正在与对精准手术机器人全球化拓展感兴趣的战略投资人和合作伙伴进行精选接触。
+                </p>
+              </div>
+              <a
+                href="mailto:info@wuerzburg-dynamics.com?subject=投资人咨询"
+                className="flex-shrink-0 px-8 py-4 bg-white text-ink text-[13px] font-500 tracking-[0.03em] hover:bg-[#F5F5F4] transition-colors duration-150 inline-block text-center"
+              >
+                发送邮件联系 →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <BackToTop label="返回顶部" />
+      </main>
     </div>
   );
 }

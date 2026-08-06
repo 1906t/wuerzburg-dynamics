@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata = {
   title: "For Partners — Würzburg Dynamics",
@@ -186,6 +187,8 @@ export default function PartnerPage() {
             </p>
           </div>
         </div>
+
+        <BackToTop label="Back to top" narrow />
       </main>
 
     </div>

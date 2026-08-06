@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import BackToTop from "@/components/BackToTop";
 import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
@@ -54,11 +55,11 @@ const metrics = [
 ];
 
 const awards = [
-  { title: "国家高新技术企业", body: "经科技部认定的国家级高新技术企业。" },
-  { title: '国家级专精特新"小巨人"', body: "国家工信部认定，专精特新领军企业。" },
-  { title: "前海粤港澳台青年创新创业大赛", body: "铜奖（企业成长组）。" },
-  { title: "深圳创新创业大赛", body: "优秀奖。" },
-  { title: "中国创新创业大赛", body: "优秀奖（成长组）。" },
+  { title: "国家高新技术企业", body: "经科技部认定的国家级高新技术企业" },
+  { title: '国家级专精特新"小巨人"', body: "国家工信部认定，专精特新领军企业" },
+  { title: "前海粤港澳台青年创新创业大赛", body: "铜奖（企业成长组）" },
+  { title: "深圳创新创业大赛", body: "优秀奖" },
+  { title: "中国创新创业大赛", body: "优秀奖（成长组）" },
 ];
 
 const exploreCards = [
@@ -189,7 +190,7 @@ export default function ZhAbout() {
                 className="font-display font-600 text-ink leading-[1.1] mb-12"
                 style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
               >
-                专注深科技，<br />长期主义驱动。
+                专注深科技，<br />长期主义驱动
               </h2>
             </ScrollReveal>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-0 border border-[#E5E5E4]">
@@ -224,7 +225,7 @@ export default function ZhAbout() {
                 className="font-display font-600 text-ink leading-[1.1] mb-12"
                 style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
               >
-                更多关于<br />惟德精准。
+                更多关于<br />惟德精准
               </h2>
             </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#E5E5E4]">
@@ -261,7 +262,7 @@ export default function ZhAbout() {
                 className="font-display font-600 text-ink leading-[1.1] mb-10"
                 style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
               >
-                深圳，中国。
+                中国深圳
               </h2>
             </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -313,7 +314,7 @@ export default function ZhAbout() {
                 className="font-display font-600 text-ink leading-[1.1] mb-12"
                 style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
               >
-                所获奖项与认定。
+                所获奖项与认定
               </h2>
             </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-[#E5E5E4]">
@@ -330,6 +331,7 @@ export default function ZhAbout() {
           </div>
         </section>
 
+        <BackToTop label="返回顶部" />
       </main>
 
       {/* Footer */}

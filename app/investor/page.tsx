@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav";
+import BackToTop from "@/components/BackToTop";
 import StatRing from "@/components/StatRing";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -358,6 +359,8 @@ export default function InvestorPage() {
             </a>
           </div>
         </div>
+
+        <BackToTop label="Back to top" narrow />
       </main>
 
     </div>

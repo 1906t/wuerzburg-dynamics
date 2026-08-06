@@ -5,9 +5,21 @@ import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
 import TechCard from "@/components/TechCard";
+import ScrollCue from "@/components/ScrollCue";
+import SectionProgress from "@/components/SectionProgress";
+import BackToTop from "@/components/BackToTop";
+
+const sections = [
+  { id: "problem", label: "行业痛点" },
+  { id: "platform", label: "技术平台" },
+  { id: "workflow", label: "操作流程" },
+  { id: "applications", label: "临床应用" },
+  { id: "partners", label: "合作医院" },
+  { id: "contact", label: "联系我们" },
+];
 
 const badges = [
-  { label: "国家三类证", sub: "NMPA最高级别医疗器械认证" },
+  { label: "双技术路径", sub: "术中CT + 术中超声，国内唯一" },
   { label: "80余家医院", sub: "全国认证临床合作伙伴" },
   { label: "3000台手术量", sub: "已完成临床手术案例" },
   { label: "B轮已完成", sub: "复星医药等机构投资" },
@@ -67,10 +79,11 @@ export default function ZhHome() {
     <div className="flex flex-col min-h-screen">
       <BackgroundCanvas />
       <Nav lang="zh" />
+      <SectionProgress sections={sections} />
 
       {/* Hero */}
       <main className="flex-1 flex flex-col justify-center pt-20 sm:pt-24" style={{ position: "relative", zIndex: 1 }}>
-        <section className="pl-5 sm:pl-8 md:pl-16 lg:pl-24 xl:pl-32 overflow-hidden">
+        <section className="relative pl-5 sm:pl-8 md:pl-16 lg:pl-24 xl:pl-32 overflow-hidden">
           <div className="w-full">
           {/* Two-column: text left, image right bleeding to edge */}
           <div className="flex flex-col md:flex-row md:items-center md:gap-0 min-h-[70vh] md:min-h-[calc(100vh-96px)] py-8 md:py-0">
@@ -105,8 +118,7 @@ export default function ZhHome() {
 
               <ScrollReveal delay={0.35}>
                 <p className="text-[17px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[560px] mb-10">
-                  惟德精准是国内首家同时掌握术中CT与术中超声双技术路径的手术机器人企业，
-                  国家三类证已获批，已在全国80余家医院完成商业化部署。
+                  惟德精准是国内首家同时掌握术中CT与术中超声双技术路径的手术机器人企业。
                 </p>
               </ScrollReveal>
 
@@ -185,10 +197,15 @@ export default function ZhHome() {
 
           </div>
           </div>
+
+          {/* Scroll cue */}
+          <div className="absolute bottom-5 left-0 right-0 flex justify-center">
+            <ScrollCue targetId="problem" label="向下浏览" />
+          </div>
         </section>
 
         {/* Problem section */}
-        <section className="relative py-16 md:py-24 px-5 sm:px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+        <section id="problem" className="relative py-16 md:py-24 px-5 sm:px-8 md:px-16 lg:px-24 xl:px-32 bg-white scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
@@ -210,8 +227,8 @@ export default function ZhHome() {
                   className={`p-6 md:p-8 ${i % 2 === 0 ? "md:border-r border-[#E5E5E4]" : ""} ${i < 4 ? "border-b border-[#E5E5E4]" : ""}`}
                 >
                   <div className="w-6 h-[2px] bg-[#CC0000] mb-4" />
-                  <div className="font-display font-600 text-[14px] md:text-[15px] text-ink mb-2">{p.label}</div>
-                  <p className="text-[12px] md:text-[13px] font-[300] text-[#6B6B6B] leading-[1.7]">{p.body}</p>
+                  <div className="font-display font-600 text-[16px] md:text-[17px] text-ink mb-3">{p.label}</div>
+                  <p className="text-[14px] md:text-[15px] font-[300] text-[#6B6B6B] leading-[1.75]">{p.body}</p>
                 </div>
               ))}
             </div>
@@ -219,7 +236,7 @@ export default function ZhHome() {
         </section>
 
         {/* Technology — 3 subsystems */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+        <section id="platform" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
@@ -245,14 +262,14 @@ export default function ZhHome() {
                 />
               ))}
             </div>
-            <p className="text-[11px] font-[400] text-[#AAAAAA] tracking-[0.07em] uppercase mt-3 mb-12">
+            <p className="text-[11px] font-[400] text-[#AAAAAA] tracking-[0.07em] uppercase mt-3">
               悬停查看各系统详情 ↑
             </p>
           </div>
         </section>
 
         {/* 4-step workflow */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+        <section id="workflow" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <div className="label-caps mb-6">操作流程</div>
@@ -271,8 +288,8 @@ export default function ZhHome() {
               ].map((s, i) => (
                 <div key={s.step} className={`p-6 ${i < 3 ? "border-r border-[#E5E5E4]" : ""}`}>
                   <div className="font-display font-700 text-[28px] text-[#E5E5E4] mb-3">{s.step}</div>
-                  <div className="font-display font-600 text-[15px] text-ink mb-2">{s.title}</div>
-                  <p className="text-[12px] font-[300] text-[#6B6B6B] leading-[1.6]">{s.body}</p>
+                  <div className="font-display font-600 text-[16px] text-ink mb-2">{s.title}</div>
+                  <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.7]">{s.body}</p>
                 </div>
               ))}
             </div>
@@ -280,7 +297,7 @@ export default function ZhHome() {
         </section>
 
         {/* Clinical applications */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+        <section id="applications" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <div className="label-caps mb-6">临床应用</div>
@@ -288,9 +305,9 @@ export default function ZhHome() {
               className="font-display font-600 text-ink leading-[1.1] mb-12"
               style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
             >
-              多类术式，<br />统一平台支持。
+              多类术式，<br />统一平台支持
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {[
                 { title: "组织活检", body: "经皮穿刺取材，用于病理及免疫组化诊断、基因组分析。" },
                 { title: "肿瘤消融", body: "精准贴合规划路径，减少术中风险，提升消融治疗效果。" },
@@ -300,8 +317,8 @@ export default function ZhHome() {
                 <div key={a.title}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/images/bullet-point.png" alt="" width={22} height={22} className="mb-3" />
-                  <div className="font-display font-600 text-[15px] text-ink mb-2">{a.title}</div>
-                  <p className="text-[12px] font-[300] text-[#6B6B6B] leading-[1.6]">{a.body}</p>
+                  <div className="font-display font-600 text-[17px] text-ink mb-2">{a.title}</div>
+                  <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.75]">{a.body}</p>
                 </div>
               ))}
             </div>
@@ -309,7 +326,7 @@ export default function ZhHome() {
         </section>
 
         {/* Hospital logos */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+        <section id="partners" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
@@ -318,10 +335,10 @@ export default function ZhHome() {
                 className="font-display font-600 text-ink leading-[1.1] mb-3"
                 style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
               >
-                已覆盖全国<br />各大顶级医院。
+                已覆盖全国<br />各大顶级医院
               </h2>
               <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[480px]">
-                手术量仅3000台，合作医院80余家。
+                全国80余家顶级医院，累计完成3,000余台精准手术
               </p>
             </ScrollReveal>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 border-t border-l border-[#E5E5E4]">
@@ -344,6 +361,71 @@ export default function ZhHome() {
             </div>
           </div>
         </section>
+
+        {/* Final CTA */}
+        <section id="contact" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 scroll-mt-24">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <div className="relative border border-[#E5E5E4] bg-[#FAFAF7] overflow-hidden">
+              {/* German-flag signature accent */}
+              <div className="flex h-[4px]">
+                <div className="flex-1 bg-[#FFCC00]" />
+                <div className="flex-1 bg-[#1a1a1a]" />
+                <div className="flex-1 bg-[#CC0000]" />
+              </div>
+              <div className="px-8 md:px-14 py-16 md:py-20">
+                <ScrollReveal>
+                  <div className="label-caps mb-6">与我们合作</div>
+                  <h2
+                    className="font-display font-700 text-ink leading-[1.1] mb-6"
+                    style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+                  >
+                    两种方式，<br />共建外科手术的未来
+                  </h2>
+                  <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.8] max-w-[520px] mb-12">
+                    无论您是希望投资下一代手术机器人，还是将其带入您所在市场的医院——
+                    我们都期待与您沟通。
+                  </p>
+                </ScrollReveal>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <Link href="/zh/investor" className="group relative bg-white border border-[#E5E5E4] hover:border-ink transition-colors duration-200 p-8 flex flex-col overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#FFCC00]" />
+                    <div className="label-caps mb-3">投资人</div>
+                    <div className="font-display font-600 text-ink text-[20px] mb-2">B轮 · 全国商业化扩张</div>
+                    <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.7] mb-6 flex-1">
+                      100余家医院、国家三类证、市场份额第二。查看产品管线与融资历程。
+                    </p>
+                    <span className="text-[13px] font-500 text-ink group-hover:translate-x-1 transition-transform duration-200 inline-flex items-center gap-2">
+                      查看投资人信息 →
+                    </span>
+                  </Link>
+                  <Link href="/zh/partner" className="group relative bg-white border border-[#E5E5E4] hover:border-ink transition-colors duration-200 p-8 flex flex-col overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#CC0000]" />
+                    <div className="label-caps mb-3">合作伙伴</div>
+                    <div className="font-display font-600 text-ink text-[20px] mb-2">分销 · 海外市场</div>
+                    <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.7] mb-6 flex-1">
+                      东南亚及中东地区独家区域权益，提供注册与临床支持。
+                    </p>
+                    <span className="text-[13px] font-500 text-ink group-hover:translate-x-1 transition-transform duration-200 inline-flex items-center gap-2">
+                      了解合作方式 →
+                    </span>
+                  </Link>
+                </div>
+                <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                  <span className="text-[13px] text-[#9B9B9B]">或直接联系我们</span>
+                  <a
+                    href="mailto:info@wuerzburg-dynamics.com"
+                    className="text-[14px] font-500 text-ink border-b border-ink/30 hover:border-ink pb-0.5 transition-colors duration-150 w-fit"
+                  >
+                    info@wuerzburg-dynamics.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <BackToTop label="返回顶部" />
       </main>
 
       {/* Footer */}

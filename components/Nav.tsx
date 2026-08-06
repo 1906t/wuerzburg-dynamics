@@ -18,6 +18,7 @@ export default function Nav({ lang }: NavProps) {
   const investor = isEn ? "/investor" : "/zh/investor";
   const partner = isEn ? "/partner" : "/zh/partner";
   const news = isEn ? "/news" : "/zh/news";
+  const contact = isEn ? "/contact" : "/zh/contact";
   const toggleLang = isEn
     ? pathname.replace(/^\//, "/zh/").replace(/^\/zh\/zh/, "/zh")
     : pathname === "/zh"
@@ -60,6 +61,12 @@ export default function Nav({ lang }: NavProps) {
           </Link>
           <Link href={news} className={navLink(isNews)}>
             {isEn ? "News" : "新闻"}
+          </Link>
+          <Link
+            href={contact}
+            className="text-[12px] sm:text-[13px] font-500 tracking-[0.01em] px-3 sm:px-4 py-1.5 bg-ink text-white hover:bg-[#2a2a2a] transition-colors duration-150"
+          >
+            {isEn ? "Contact" : "联系我们"}
           </Link>
           <Link
             href={toggleLang}

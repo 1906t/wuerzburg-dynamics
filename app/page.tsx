@@ -5,9 +5,21 @@ import BackgroundCanvas from "@/components/BackgroundCanvas";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionLine from "@/components/SectionLine";
 import TechCard from "@/components/TechCard";
+import ScrollCue from "@/components/ScrollCue";
+import SectionProgress from "@/components/SectionProgress";
+import BackToTop from "@/components/BackToTop";
+
+const sections = [
+  { id: "problem", label: "The Problem" },
+  { id: "platform", label: "The Platform" },
+  { id: "workflow", label: "How It Works" },
+  { id: "applications", label: "Applications" },
+  { id: "partners", label: "Partners" },
+  { id: "contact", label: "Contact" },
+];
 
 const badges = [
-  { label: "Class III Certified", sub: "NMPA · China's highest device standard" },
+  { label: "Dual-Path Imaging", sub: "Intraoperative CT + ultrasound — unique in China" },
   { label: "80+ Hospitals", sub: "Certified clinical partners across China" },
   { label: "3,000 Procedures", sub: "Clinical cases completed to date" },
   { label: "Series B", sub: "Backed by Fosun Pharma & institutional investors" },
@@ -67,10 +79,11 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <BackgroundCanvas />
       <Nav lang="en" />
+      <SectionProgress sections={sections} />
 
       {/* Hero */}
       <main className="flex-1 flex flex-col justify-center pt-20 sm:pt-24" style={{ position: "relative", zIndex: 1 }}>
-        <section className="pl-5 sm:pl-8 md:pl-16 lg:pl-24 xl:pl-32 overflow-hidden">
+        <section className="relative pl-5 sm:pl-8 md:pl-16 lg:pl-24 xl:pl-32 overflow-hidden">
           <div className="w-full">
           {/* Two-column: text left, image right bleeding to edge */}
           <div className="flex flex-col md:flex-row md:items-center md:gap-0 min-h-[70vh] md:min-h-[calc(100vh-96px)] py-8 md:py-0">
@@ -107,8 +120,7 @@ export default function Home() {
               <ScrollReveal delay={0.35}>
                 <p className="text-[17px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[560px] mb-10">
                   Würzburg Dynamics is the only company in China with dual-path
-                  intraoperative CT + ultrasound robotic guidance — NMPA Class III
-                  certified and deployed across 80+ hospitals.
+                  intraoperative CT + ultrasound robotic guidance.
                 </p>
               </ScrollReveal>
 
@@ -191,10 +203,15 @@ export default function Home() {
 
           </div>
           </div>
+
+          {/* Scroll cue */}
+          <div className="absolute bottom-5 left-0 right-0 flex justify-center">
+            <ScrollCue targetId="problem" label="Explore" />
+          </div>
         </section>
 
         {/* Problem section */}
-        <section className="relative py-16 md:py-24 px-5 sm:px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+        <section id="problem" className="relative py-16 md:py-24 px-5 sm:px-8 md:px-16 lg:px-24 xl:px-32 bg-white scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
@@ -216,8 +233,8 @@ export default function Home() {
                   className={`p-6 md:p-8 ${i % 2 === 0 ? "md:border-r border-[#E5E5E4]" : ""} ${i < 4 ? "border-b border-[#E5E5E4]" : ""}`}
                 >
                   <div className="w-6 h-[2px] bg-[#CC0000] mb-4" />
-                  <div className="font-display font-600 text-[14px] md:text-[15px] text-ink mb-2">{p.label}</div>
-                  <p className="text-[12px] md:text-[13px] font-[300] text-[#6B6B6B] leading-[1.7]">{p.body}</p>
+                  <div className="font-display font-600 text-[16px] md:text-[17px] text-ink mb-3">{p.label}</div>
+                  <p className="text-[14px] md:text-[15px] font-[300] text-[#6B6B6B] leading-[1.75]">{p.body}</p>
                 </div>
               ))}
             </div>
@@ -225,7 +242,7 @@ export default function Home() {
         </section>
 
         {/* Technology — 3 subsystems */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+        <section id="platform" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
@@ -254,7 +271,7 @@ export default function Home() {
                 />
               ))}
             </div>
-            <p className="text-[11px] font-[400] text-[#AAAAAA] tracking-[0.07em] uppercase mt-3 mb-12">
+            <p className="text-[11px] font-[400] text-[#AAAAAA] tracking-[0.07em] uppercase mt-3">
               Hover over each system to read ↑
             </p>
 
@@ -262,7 +279,7 @@ export default function Home() {
         </section>
 
         {/* 4-step workflow */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+        <section id="workflow" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <div className="label-caps mb-6">How It Works</div>
@@ -281,8 +298,8 @@ export default function Home() {
               ].map((s, i) => (
                 <div key={s.step} className={`p-6 ${i < 3 ? "border-r border-[#E5E5E4]" : ""}`}>
                   <div className="font-display font-700 text-[28px] text-[#E5E5E4] mb-3">{s.step}</div>
-                  <div className="font-display font-600 text-[15px] text-ink mb-2">{s.title}</div>
-                  <p className="text-[12px] font-[300] text-[#6B6B6B] leading-[1.6]">{s.body}</p>
+                  <div className="font-display font-600 text-[16px] text-ink mb-2">{s.title}</div>
+                  <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.7]">{s.body}</p>
                 </div>
               ))}
             </div>
@@ -290,7 +307,7 @@ export default function Home() {
         </section>
 
         {/* Clinical applications */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+        <section id="applications" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <div className="label-caps mb-6">Clinical Applications</div>
@@ -300,7 +317,7 @@ export default function Home() {
             >
               Wide range of procedures.<br />One platform.
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {[
                 { title: "Tissue Biopsy", body: "Tissue acquisition, pathological and immunohistochemical diagnosis, genomic analysis." },
                 { title: "Tumor Ablation", body: "Improved conformity to planned paths. Reduced intraoperative risk. Enhanced therapy outcomes." },
@@ -310,8 +327,8 @@ export default function Home() {
                 <div key={a.title}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/images/bullet-point.png" alt="" width={22} height={22} className="mb-3" />
-                  <div className="font-display font-600 text-[15px] text-ink mb-2">{a.title}</div>
-                  <p className="text-[12px] font-[300] text-[#6B6B6B] leading-[1.6]">{a.body}</p>
+                  <div className="font-display font-600 text-[17px] text-ink mb-2">{a.title}</div>
+                  <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.75]">{a.body}</p>
                 </div>
               ))}
             </div>
@@ -319,7 +336,7 @@ export default function Home() {
         </section>
 
         {/* Hospital logos */}
-        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+        <section id="partners" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white scroll-mt-24">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
             <ScrollReveal>
@@ -331,7 +348,7 @@ export default function Home() {
                 Deployed across China&apos;s<br />leading hospitals.
               </h2>
               <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[480px]">
-                3,000 procedures completed. 80+ certified clinical partners across China.
+                80+ leading hospitals nationwide, with 3,000+ precision procedures completed to date.
               </p>
             </ScrollReveal>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 border-t border-l border-[#E5E5E4]">
@@ -354,6 +371,71 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Final CTA */}
+        <section id="contact" className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 scroll-mt-24">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <div className="relative border border-[#E5E5E4] bg-[#FAFAF7] overflow-hidden">
+              {/* German-flag signature accent */}
+              <div className="flex h-[4px]">
+                <div className="flex-1 bg-[#FFCC00]" />
+                <div className="flex-1 bg-[#1a1a1a]" />
+                <div className="flex-1 bg-[#CC0000]" />
+              </div>
+              <div className="px-8 md:px-14 py-16 md:py-20">
+                <ScrollReveal>
+                  <div className="label-caps mb-6">Work With Us</div>
+                  <h2
+                    className="font-display font-700 text-ink leading-[1.05] mb-6"
+                    style={{ fontSize: "clamp(28px, 4vw, 52px)" }}
+                  >
+                    Two ways to build<br />the future of surgery.
+                  </h2>
+                  <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[520px] mb-12">
+                    Whether you&apos;re backing the next category of surgical robotics or bringing
+                    it to hospitals in your market — we&apos;d like to hear from you.
+                  </p>
+                </ScrollReveal>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <Link href="/investor" className="group relative bg-white border border-[#E5E5E4] hover:border-ink transition-colors duration-200 p-8 flex flex-col overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#FFCC00]" />
+                    <div className="label-caps mb-3">For Investors</div>
+                    <div className="font-display font-600 text-ink text-[20px] mb-2">Series B · scaling nationally</div>
+                    <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.65] mb-6 flex-1">
+                      100+ hospitals, Class III certified, second in market share. See the pipeline and financing history.
+                    </p>
+                    <span className="text-[13px] font-500 text-ink group-hover:translate-x-1 transition-transform duration-200 inline-flex items-center gap-2">
+                      View investor brief →
+                    </span>
+                  </Link>
+                  <Link href="/partner" className="group relative bg-white border border-[#E5E5E4] hover:border-ink transition-colors duration-200 p-8 flex flex-col overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#CC0000]" />
+                    <div className="label-caps mb-3">For Partners</div>
+                    <div className="font-display font-600 text-ink text-[20px] mb-2">Distribution · overseas markets</div>
+                    <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.65] mb-6 flex-1">
+                      Exclusive territory rights in Southeast Asia and the Middle East. Regulatory and clinical support included.
+                    </p>
+                    <span className="text-[13px] font-500 text-ink group-hover:translate-x-1 transition-transform duration-200 inline-flex items-center gap-2">
+                      Explore partnership →
+                    </span>
+                  </Link>
+                </div>
+                <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                  <span className="text-[13px] text-[#9B9B9B]">Or reach us directly</span>
+                  <a
+                    href="mailto:info@wuerzburg-dynamics.com"
+                    className="text-[14px] font-500 text-ink border-b border-ink/30 hover:border-ink pb-0.5 transition-colors duration-150 w-fit"
+                  >
+                    info@wuerzburg-dynamics.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <BackToTop label="Back to top" />
       </main>
 
       {/* Footer */}
