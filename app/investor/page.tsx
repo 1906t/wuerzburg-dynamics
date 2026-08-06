@@ -138,53 +138,52 @@ export default function InvestorPage() {
                 Deployed. Not just approved.
               </h2>
             </ScrollReveal>
-            <div className="grid grid-cols-2 gap-0 border border-[#E5E5E4] mb-10 max-w-[600px]">
-              <div className="p-8 border-r border-[#E5E5E4]">
-                <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(52px, 8vw, 88px)" }}>
-                  100+
+            {/* Deployment scale (left) + clinical outcomes (right), split by a faint divider */}
+            <div className="flex flex-col lg:flex-row lg:items-stretch gap-10 lg:gap-0 mb-10">
+              {/* Left: scale / market */}
+              <div className="grid grid-cols-2 gap-0 border border-[#E5E5E4] w-full lg:max-w-[520px]">
+                <div className="p-8 border-r border-[#E5E5E4]">
+                  <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(48px, 7vw, 80px)" }}>
+                    100+
+                  </div>
+                  <div className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5]">
+                    Certified hospital partners<br />across China
+                  </div>
                 </div>
-                <div className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5]">
-                  Certified hospital partners<br />across China
+                <div className="p-8">
+                  <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(48px, 7vw, 80px)" }}>
+                    #2
+                  </div>
+                  <div className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5]">
+                    Market share in soft-tissue<br />percutaneous robotics in China
+                  </div>
                 </div>
               </div>
-              <div className="p-8">
-                <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(52px, 8vw, 88px)" }}>
-                  #2
-                </div>
-                <div className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5]">
-                  Market share in soft-tissue<br />percutaneous robotics in China
-                </div>
+
+              {/* Right: clinical outcome rings, faint vertical divider between */}
+              <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 lg:flex-1 lg:border-l lg:border-[#E5E5E4] lg:pl-10 xl:pl-16 py-2 lg:py-0">
+                <StatRing
+                  value={93}
+                  label="93.3%"
+                  sublabel="First-attempt success rate vs. 53.3% control group"
+                  size={150}
+                />
+                <StatRing
+                  value={61}
+                  label="39% ↓"
+                  sublabel="Reduction in puncture-related complications"
+                  size={150}
+                />
               </div>
             </div>
+
             <ScrollReveal delay={0.1}>
-              <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[640px]">
+              <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[600px]">
                 Lung robot registered Jun 2024, now in active commercialisation across 100+ hospitals.
                 Procedures: biopsy, ablation, particle implantation. Precision: ~1mm targeting accuracy.
                 Compatible with C-arm, CBCT, OBCT imaging platforms.
               </p>
             </ScrollReveal>
-
-            {/* Animated stat rings */}
-            <div className="flex flex-wrap gap-12 justify-center mb-10 py-8">
-              <StatRing
-                value={93}
-                label="93.3%"
-                sublabel="First-attempt success rate vs. 53.3% control group"
-                size={150}
-              />
-              <StatRing
-                value={61}
-                label="39% ↓"
-                sublabel="Reduction in puncture-related complications"
-                size={150}
-              />
-              <StatRing
-                value={100}
-                label="100+"
-                sublabel="Certified hospital partners across China"
-                size={150}
-              />
-            </div>
             <div className="relative w-full aspect-[16/7] bg-[#F9F9F8] overflow-hidden mb-2">
               <Image
                 src="/images/experimental-data.png"

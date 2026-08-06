@@ -23,7 +23,10 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex flex-col sm:items-end gap-1 text-[11px] text-[#6B6B6B] tracking-[0.02em]">
-            <span>Pingshan District, Shenzhen, Guangdong, China · 深圳市坪山区</span>
+            <span className="sm:text-right">
+              Innovation Plaza B1504, 2007 Pingshan Avenue, Pingshan District, Shenzhen
+              <span className="block">广东省深圳市坪山区坪山大道2007号创新广场B1504</span>
+            </span>
             <div className="flex flex-wrap gap-x-4 gap-y-1 sm:justify-end">
               <a
                 href="tel:+8607558966820"

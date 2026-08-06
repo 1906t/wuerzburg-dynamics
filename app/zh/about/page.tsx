@@ -272,7 +272,7 @@ export default function ZhAbout() {
                   <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.8]">
                     深圳惟德精准医疗科技有限公司<br />
                     Würzburg Dynamics (Shenzhen) Ltd.<br />
-                    广东省深圳市坪山区
+                    广东省深圳市坪山区坪山大道2007号创新广场B1504
                   </p>
                 </div>
               </ScrollReveal>

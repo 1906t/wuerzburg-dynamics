@@ -28,16 +28,16 @@ export default function ScrollCue({ targetId, label }: Props) {
       style={{ opacity: hidden ? 0 : 1, pointerEvents: hidden ? "none" : "auto" }}
     >
       {label && (
-        <span className="text-[10px] font-500 tracking-[0.14em] uppercase text-[#9B9B9B]">
+        <span className="text-[11px] font-600 tracking-[0.16em] uppercase text-[#2A2A2A]">
           {label}
         </span>
       )}
       <span className="animate-scroll-cue">
-        <svg width="18" height="24" viewBox="0 0 18 24" fill="none">
+        <svg width="22" height="28" viewBox="0 0 18 24" fill="none">
           <path
             d="M9 2V21M9 21L2 14M9 21L16 14"
-            stroke="#6B6B6B"
-            strokeWidth="1.4"
+            stroke="#1A1A1A"
+            strokeWidth="1.8"
             strokeLinecap="round"
             strokeLinejoin="round"
           />

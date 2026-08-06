@@ -8,6 +8,7 @@ import TechCard from "@/components/TechCard";
 import ScrollCue from "@/components/ScrollCue";
 import SectionProgress from "@/components/SectionProgress";
 import BackToTop from "@/components/BackToTop";
+import CredentialBadges from "@/components/CredentialBadges";
 
 const sections = [
   { id: "problem", label: "行业痛点" },
@@ -168,31 +169,13 @@ export default function ZhHome() {
                 priority
               />
 
-              {/* Floating credential badges */}
-              <div className="absolute bottom-16 left-10 z-20 flex flex-col gap-3">
-                <div className="bg-white border border-[#E5E5E4] shadow-sm px-4 py-2.5 flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#0B0B0B] flex items-center justify-center flex-shrink-0">
-                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-600 text-ink tracking-[0.04em] uppercase">国家三类医疗器械注册证</div>
-                    <div className="text-[10px] font-[300] text-[#6B6B6B]">国内最高级别器械注册认证</div>
-                  </div>
-                </div>
-                <div className="bg-white border border-[#E5E5E4] shadow-sm px-4 py-2.5 flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#0B0B0B] flex items-center justify-center flex-shrink-0">
-                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-600 text-ink tracking-[0.04em] uppercase">穿刺精度 ≤ 0.8mm</div>
-                    <div className="text-[10px] font-[300] text-[#6B6B6B]">肺部 · 肾脏 · 肝脏</div>
-                  </div>
-                </div>
-              </div>
+              {/* Floating credential badges — fly-in + reticle lock on load */}
+              <CredentialBadges
+                badges={[
+                  { label: "国家三类医疗器械注册证", sub: "国内最高级别器械注册认证" },
+                  { label: "穿刺精度 ≤ 0.8mm", sub: "肺部 · 肾脏 · 肝脏" },
+                ]}
+              />
             </div>
 
           </div>

@@ -25,7 +25,7 @@ const methods = [
   },
   {
     label: "Office",
-    value: "Pingshan District, Shenzhen\nGuangdong Province, China",
+    value: "Innovation Plaza B1504, 2007 Pingshan Avenue\nPingshan District, Shenzhen, Guangdong, China",
   },
 ];
 

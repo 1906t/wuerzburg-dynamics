@@ -298,8 +298,8 @@ export default function About() {
                   <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.8]">
                     深圳惟德精准医疗科技有限公司<br />
                     Würzburg Dynamics (Shenzhen) Ltd.<br />
-                    Pingshan District, Shenzhen<br />
-                    Guangdong Province, China
+                    Innovation Plaza B1504, 2007 Pingshan Avenue<br />
+                    Pingshan District, Shenzhen, Guangdong, China
                   </p>
                 </div>
               </ScrollReveal>

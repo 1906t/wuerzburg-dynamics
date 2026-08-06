@@ -8,6 +8,7 @@ import TechCard from "@/components/TechCard";
 import ScrollCue from "@/components/ScrollCue";
 import SectionProgress from "@/components/SectionProgress";
 import BackToTop from "@/components/BackToTop";
+import CredentialBadges from "@/components/CredentialBadges";
 
 const sections = [
   { id: "problem", label: "The Problem" },
@@ -174,31 +175,13 @@ export default function Home() {
                 priority
               />
 
-              {/* Floating credential badges */}
-              <div className="absolute bottom-16 left-10 z-20 flex flex-col gap-3">
-                <div className="bg-white border border-[#E5E5E4] shadow-sm px-4 py-2.5 flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#0B0B0B] flex items-center justify-center flex-shrink-0">
-                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-600 text-ink tracking-[0.04em] uppercase">Class III NMPA</div>
-                    <div className="text-[10px] font-[300] text-[#6B6B6B]">China&apos;s highest device standard</div>
-                  </div>
-                </div>
-                <div className="bg-white border border-[#E5E5E4] shadow-sm px-4 py-2.5 flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#0B0B0B] flex items-center justify-center flex-shrink-0">
-                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-600 text-ink tracking-[0.04em] uppercase">≤ 0.8 mm accuracy</div>
-                    <div className="text-[10px] font-[300] text-[#6B6B6B]">Lung · Kidney · Liver</div>
-                  </div>
-                </div>
-              </div>
+              {/* Floating credential badges — fly-in + reticle lock on load */}
+              <CredentialBadges
+                badges={[
+                  { label: "Class III NMPA", sub: "China's highest device standard" },
+                  { label: "≤ 0.8 mm accuracy", sub: "Lung · Kidney · Liver" },
+                ]}
+              />
             </div>
 
           </div>
