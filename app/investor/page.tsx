@@ -1,9 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import Nav from "@/components/Nav";
 import BackToTop from "@/components/BackToTop";
+import BackgroundCanvas from "@/components/BackgroundCanvas";
 import StatRing from "@/components/StatRing";
 import ScrollReveal from "@/components/ScrollReveal";
+import SectionLine from "@/components/SectionLine";
 
 
 export const metadata = {
@@ -92,42 +93,52 @@ const team = [
 
 export default function InvestorPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen">
+      <BackgroundCanvas />
       <Nav lang="en" />
 
-      <main className="pt-36 pb-32 px-6">
-        <div className="max-w-[720px] mx-auto">
+      <main className="flex-1 pt-24" style={{ position: "relative", zIndex: 1 }}>
 
-          {/* Page header */}
-          <div className="mb-24">
-            <div className="label-caps mb-5">Investor Overview</div>
-            <h1
-              className="font-display font-700 text-ink leading-[1.05] tracking-[-0.01em] mb-6"
-              style={{ fontSize: "clamp(36px, 5vw, 60px)" }}
-            >
-              Building the platform<br />
-              for percutaneous<br />
-              robotics worldwide.
-            </h1>
-            <p className="text-[16px] font-[300] text-[#6B6B6B] leading-[1.7]">
-              Würzburg Dynamics is the only company in China — and one of very few globally —
-              with dual-path intraoperative CT + ultrasound robotic guidance. NMPA Class III
-              certified, commercially deployed, and expanding internationally.
-            </p>
+        {/* Hero / header */}
+        <section className="px-8 md:px-16 lg:px-24 xl:px-32 py-24 min-h-[60vh] flex items-center">
+          <div className="max-w-[1200px] mx-auto w-full">
+            <ScrollReveal delay={0.1}>
+              <div className="label-caps mb-8">Investor Overview</div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2} y={60}>
+              <h1
+                className="font-display font-700 text-ink leading-[1.0] tracking-[-0.01em] mb-8"
+                style={{ fontSize: "clamp(36px, 5vw, 72px)" }}
+              >
+                Building the platform<br />
+                for percutaneous<br />
+                robotics worldwide.
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.35}>
+              <p className="text-[17px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[600px]">
+                Würzburg Dynamics is the only company in China — and one of very few globally —
+                with dual-path intraoperative CT + ultrasound robotic guidance. NMPA Class III
+                certified, commercially deployed, and expanding internationally.
+              </p>
+            </ScrollReveal>
           </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Clinical proof */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">Clinical Proof</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-8"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              Deployed. Not just approved.
-            </h2>
-            <div className="grid grid-cols-2 gap-0 border border-[#E5E5E4] mb-10">
+        {/* Clinical proof */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">Clinical Proof</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-8"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                Deployed. Not just approved.
+              </h2>
+            </ScrollReveal>
+            <div className="grid grid-cols-2 gap-0 border border-[#E5E5E4] mb-10 max-w-[600px]">
               <div className="p-8 border-r border-[#E5E5E4]">
                 <div className="font-display font-700 text-ink leading-none mb-3" style={{ fontSize: "clamp(52px, 8vw, 88px)" }}>
                   100+
@@ -145,11 +156,13 @@ export default function InvestorPage() {
                 </div>
               </div>
             </div>
-            <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10">
-              Lung robot registered Jun 2024, now in active commercialisation across 100+ hospitals.
-              Procedures: biopsy, ablation, particle implantation. Precision: ~1mm targeting accuracy.
-              Compatible with C-arm, CBCT, OBCT imaging platforms.
-            </p>
+            <ScrollReveal delay={0.1}>
+              <p className="text-[15px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[640px]">
+                Lung robot registered Jun 2024, now in active commercialisation across 100+ hospitals.
+                Procedures: biopsy, ablation, particle implantation. Precision: ~1mm targeting accuracy.
+                Compatible with C-arm, CBCT, OBCT imaging platforms.
+              </p>
+            </ScrollReveal>
 
             {/* Animated stat rings */}
             <div className="flex flex-wrap gap-12 justify-center mb-10 py-8">
@@ -181,24 +194,27 @@ export default function InvestorPage() {
               />
             </div>
             <p className="text-[11px] text-[#6B6B6B]">Source: Quantitative Imaging in Medicine and Surgery, Guangzhou Medical University</p>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Market */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">Market Opportunity</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              Four indications.<br />Hundreds of millions of patients.
-            </h2>
-            <div className="grid grid-cols-2 gap-0 border border-[#E5E5E4] mb-8">
+        {/* Market */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">Market Opportunity</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-10"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                Four indications.<br />Hundreds of millions of patients.
+              </h2>
+            </ScrollReveal>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-[#E5E5E4] mb-8">
               {market.map((m, i) => (
                 <div
                   key={m.organ}
-                  className={`p-6 ${i % 2 === 0 ? "border-r border-[#E5E5E4]" : ""} ${i < 2 ? "border-b border-[#E5E5E4]" : ""}`}
+                  className={`p-6 border-[#E5E5E4] ${i < 3 ? "md:border-r" : ""} ${i % 2 === 0 ? "border-r" : ""} ${i < 2 ? "border-b md:border-b-0" : ""}`}
                 >
                   <div className="font-display font-700 text-ink leading-none mb-2" style={{ fontSize: "clamp(32px, 5vw, 52px)" }}>
                     {m.patients}
@@ -208,63 +224,71 @@ export default function InvestorPage() {
                 </div>
               ))}
             </div>
-            <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.7]">
+            <p className="text-[13px] font-[300] text-[#6B6B6B] leading-[1.7] max-w-[640px]">
               Platform economics: each additional indication (liver, thyroid, breast) leverages the
               same core hardware — SuperBrain, SkyEye, SmartArm — with a software and
               regulatory overlay only.
             </p>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Pipeline */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">Product Pipeline</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              Platform, not product.
-            </h2>
-            <div className="space-y-0">
+        {/* Pipeline */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">Product Pipeline</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-10"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                Platform, not product.
+              </h2>
+            </ScrollReveal>
+            <div className="space-y-0 max-w-[820px]">
               {pipeline.map((item, i) => (
-                <div key={item.name} className="flex gap-8 pb-10">
-                  <div className="flex flex-col items-center pt-1 flex-shrink-0 w-[1px] relative ml-3">
-                    <div className="w-2 h-2 rounded-full bg-ink flex-shrink-0 z-10" />
-                    {i < pipeline.length - 1 && (
-                      <div className="flex-1 w-px bg-[#E5E5E4] mt-2" style={{ minHeight: "60px" }} />
-                    )}
-                  </div>
-                  <div className="flex-1 -mt-0.5 pb-2">
-                    <div className="flex items-baseline justify-between gap-4 mb-1">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-500 tracking-[0.1em] uppercase px-2 py-0.5 border border-[#E5E5E4] text-[#6B6B6B]">
-                          {item.phase}
-                        </span>
-                        <span className="font-display font-600 text-[17px] text-ink">{item.name}</span>
-                      </div>
-                      <span className="text-[12px] text-[#6B6B6B] font-[400] flex-shrink-0">{item.year}</span>
+                <ScrollReveal key={item.name} delay={i * 0.1}>
+                  <div className="flex gap-8 pb-10">
+                    <div className="flex flex-col items-center pt-1 flex-shrink-0 w-[1px] relative ml-3">
+                      <div className="w-2 h-2 rounded-full bg-ink flex-shrink-0 z-10" />
+                      {i < pipeline.length - 1 && (
+                        <div className="flex-1 w-px bg-[#E5E5E4] mt-2" style={{ minHeight: "60px" }} />
+                      )}
                     </div>
-                    <p className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5] mt-2">{item.indication}</p>
-                    <p className="text-[11px] font-500 text-ink mt-1 tracking-[0.03em]">{item.status}</p>
+                    <div className="flex-1 -mt-0.5 pb-2">
+                      <div className="flex items-baseline justify-between gap-4 mb-1">
+                        <div className="flex items-center gap-3">
+                          <span className="text-[10px] font-500 tracking-[0.1em] uppercase px-2 py-0.5 border border-[#E5E5E4] text-[#6B6B6B]">
+                            {item.phase}
+                          </span>
+                          <span className="font-display font-600 text-[17px] text-ink">{item.name}</span>
+                        </div>
+                        <span className="text-[12px] text-[#6B6B6B] font-[400] flex-shrink-0">{item.year}</span>
+                      </div>
+                      <p className="text-[13px] font-[400] text-[#6B6B6B] leading-[1.5] mt-2">{item.indication}</p>
+                      <p className="text-[11px] font-500 text-ink mt-1 tracking-[0.03em]">{item.status}</p>
+                    </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Financing history */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">Financing History</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              RMB 240M+ raised<br />across four rounds.
-            </h2>
-            <div className="border-t border-[#E5E5E4]">
+        {/* Financing history */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">Financing History</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-10"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                RMB 240M+ raised<br />across four rounds.
+              </h2>
+            </ScrollReveal>
+            <div className="border-t border-[#E5E5E4] max-w-[720px]">
               {financing.map((f) => (
                 <div key={f.round} className="flex items-baseline justify-between py-5 border-b border-[#E5E5E4]">
                   <span className="font-display font-600 text-[17px] text-ink">{f.round}</span>
@@ -275,20 +299,23 @@ export default function InvestorPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Investors */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">Current Investors</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-10"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              Backed by strategic<br />and institutional conviction.
-            </h2>
-            <div className="border-t border-[#E5E5E4]">
+        {/* Investors */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">Current Investors</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-10"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                Backed by strategic<br />and institutional conviction.
+              </h2>
+            </ScrollReveal>
+            <div className="border-t border-[#E5E5E4] max-w-[720px]">
               {investors.map((inv) => (
                 <div key={inv.name} className="flex items-baseline justify-between py-5 border-b border-[#E5E5E4] group">
                   <span className="font-display font-600 text-[16px] text-ink group-hover:translate-x-0.5 transition-transform duration-150">
@@ -298,24 +325,27 @@ export default function InvestorPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          {/* Team */}
-          <section className="mb-24">
-            <div className="label-caps mb-6">Leadership Team</div>
-            <h2
-              className="font-display font-600 text-ink leading-[1.1] mb-4"
-              style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
-            >
-              Deep domain expertise.<br />National recognition.
-            </h2>
-            <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10">
-              Founded by returnee PhDs from Siemens, Philips, University of Bern, and Heidelberg
-              University Hospital. 126 employees as of end-2025. 100+ patents filed and granted.
-            </p>
-            <div className="space-y-0 border-t border-[#E5E5E4]">
+        {/* Team */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <ScrollReveal>
+              <div className="label-caps mb-6">Leadership Team</div>
+              <h2
+                className="font-display font-600 text-ink leading-[1.1] mb-4"
+                style={{ fontSize: "clamp(24px, 3.5vw, 42px)" }}
+              >
+                Deep domain expertise.<br />National recognition.
+              </h2>
+              <p className="text-[14px] font-[300] text-[#6B6B6B] leading-[1.7] mb-10 max-w-[640px]">
+                Founded by returnee PhDs from Siemens, Philips, University of Bern, and Heidelberg
+                University Hospital. 126 employees as of end-2025. 100+ patents filed and granted.
+              </p>
+            </ScrollReveal>
+            <div className="space-y-0 border-t border-[#E5E5E4] max-w-[860px]">
               {team.map((t) => (
                 <div key={t.name} className="py-7 border-b border-[#E5E5E4]">
                   <div className="flex items-baseline gap-3 mb-1">
@@ -327,42 +357,39 @@ export default function InvestorPage() {
                 </div>
               ))}
             </div>
-          </section>
-
-          <div className="border-t border-[#E5E5E4] mb-24" />
-
-          <section>
-            <div className="label-caps mb-6">Next Step</div>
-          </section>
-        </div>
-
-        {/* CTA block */}
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="bg-ink px-12 py-16 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-            <div>
-              <h2
-                className="font-display font-700 text-white leading-[1.05] mb-3"
-                style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
-              >
-                Schedule a call with our team.
-              </h2>
-              <p className="text-[14px] text-white/60 font-[300] max-w-[420px] leading-[1.6]">
-                We are selectively engaging with strategic investors and partners
-                interested in the global expansion of percutaneous surgical robotics.
-              </p>
-            </div>
-            <a
-              href="mailto:info@wuerzburg-dynamics.com?subject=Investor%20Enquiry"
-              className="flex-shrink-0 px-8 py-4 bg-white text-ink text-[13px] font-500 tracking-[0.03em] hover:bg-[#F5F5F4] transition-colors duration-150 inline-block text-center"
-            >
-              Get in touch →
-            </a>
           </div>
-        </div>
+        </section>
 
-        <BackToTop label="Back to top" narrow />
+        {/* CTA */}
+        <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+          <SectionLine />
+          <div className="max-w-[1200px] mx-auto">
+            <div className="bg-ink px-12 py-16 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div>
+                <div className="label-caps mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>Next Step</div>
+                <h2
+                  className="font-display font-700 text-white leading-[1.05] mb-3"
+                  style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+                >
+                  Schedule a call with our team.
+                </h2>
+                <p className="text-[14px] text-white/60 font-[300] max-w-[420px] leading-[1.6]">
+                  We are selectively engaging with strategic investors and partners
+                  interested in the global expansion of percutaneous surgical robotics.
+                </p>
+              </div>
+              <a
+                href="mailto:info@wuerzburg-dynamics.com?subject=Investor%20Enquiry"
+                className="flex-shrink-0 px-8 py-4 bg-white text-ink text-[13px] font-500 tracking-[0.03em] hover:bg-[#F5F5F4] transition-colors duration-150 inline-block text-center"
+              >
+                Get in touch →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <BackToTop label="Back to top" />
       </main>
-
     </div>
   );
 }

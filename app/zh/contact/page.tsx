@@ -92,12 +92,7 @@ export default function ZhContactPage() {
         <section className="relative py-24 px-8 md:px-16 lg:px-24 xl:px-32">
           <SectionLine />
           <div className="max-w-[1200px] mx-auto">
-            <div className="relative border border-[#E5E5E4] bg-[#FAFAF7] overflow-hidden">
-              <div className="flex h-[4px]">
-                <div className="flex-1 bg-[#FFCC00]" />
-                <div className="flex-1 bg-[#1a1a1a]" />
-                <div className="flex-1 bg-[#CC0000]" />
-              </div>
+            <div className="relative bg-[#FAFAF7] overflow-hidden">
               <div className="px-8 md:px-14 py-16 md:py-20">
                 <ScrollReveal>
                   <div className="label-caps mb-6">预约沟通</div>
